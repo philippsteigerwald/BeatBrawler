@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ProjectInfo>
+	<Project Name="BeatBrawlerFix_WwiseProject" GUID="{590A06DB-FB9A-4B65-9431-70BCDCBE4340}" Generator="2023.1.5.8522"/>
+	<CacheRoot>../../../../BeatBrawlerFix_WwiseProject/.cache</CacheRoot>
+	<Platforms>
+		<Platform Name="Mac" GUID="{0BEC3C34-3BD8-4C48-9845-095C1992DCBA}" BasePlatform="Mac" BasePlatformGUID="{9C6217D5-DD11-4795-87C1-6CE02853C540}" Path="../../../../BeatBrawlerFix_WwiseProject/GeneratedSoundBanks/Mac"/>
+		<Platform Name="Windows" GUID="{B41E4E61-F19D-4FB4-BAD4-03EE7A7FB147}" BasePlatform="Windows" BasePlatformGUID="{6E0CB257-C6C8-4C5C-8366-2740DFC441EB}" Path="../../../../BeatBrawlerFix_WwiseProject/GeneratedSoundBanks/Windows"/>
+	</Platforms>
+	<Languages>
+		<Language Name="English(US)" Id="684519430" GUID="{0A7FCBC6-0489-4E22-ACE8-2D950022140C}" Default="true" UseAsStandIn="true"/>
+	</Languages>
+	<FileHash>{854315C4-10F1-984A-D427-166ECCCCCD60}</FileHash>
+</ProjectInfo>

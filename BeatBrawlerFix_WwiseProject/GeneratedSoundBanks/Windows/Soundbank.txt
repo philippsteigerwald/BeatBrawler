@@ -1,0 +1,6 @@
+Event	ID	Name			Wwise Object Path	Notes
+	3009755888	Play_MainTheme			\Default Work Unit\Play_MainTheme	
+
+In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
+	55032003	60bpm	Z:\Applications\Unity\Projects\BeatBrawlerFix\BeatBrawlerFix_WwiseProject\.cache\Windows\SFX\60bpmKick_FBC78EF0.wem		\Interactive Music Hierarchy\Default Work Unit\MainTheme\60bpm		14112096
+
