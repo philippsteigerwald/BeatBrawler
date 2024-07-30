@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <WwiseDocument Type="WorkUnit" ID="{F5C615EC-85DB-4D07-A5C1-1176CFFA690F}" SchemaVersion="119">
 	<States>
-		<WorkUnit Name="Default Work Unit" ID="{F5C615EC-85DB-4D07-A5C1-1176CFFA690F}" PersistMode="Standalone"/>
+		<WorkUnit Name="Default Work Unit" ID="{F5C615EC-85DB-4D07-A5C1-1176CFFA690F}" PersistMode="Standalone">
+			<ChildrenList>
+				<StateGroup Name="MainTheme" ID="{FE12ADCB-02D1-4A0D-A73D-33E1849253FC}">
+					<ChildrenList>
+						<State Name="None" ID="{2FABE9FE-6E17-4431-A70D-DB486FFE1898}"/>
+						<State Name="Below10" ID="{3C7252CE-F5BD-4076-96BF-F0E87E5BFC38}"/>
+						<State Name="Below20" ID="{A14073D7-2D4A-43BB-AC41-252AAAC7EA61}"/>
+						<State Name="Above20" ID="{9612A71A-8FA8-4570-9561-F0891C725C8F}"/>
+					</ChildrenList>
+				</StateGroup>
+			</ChildrenList>
+		</WorkUnit>
 	</States>
 </WwiseDocument>

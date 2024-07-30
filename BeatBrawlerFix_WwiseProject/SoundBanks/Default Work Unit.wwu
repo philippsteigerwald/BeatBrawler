@@ -5,7 +5,10 @@
 			<ChildrenList>
 				<SoundBank Name="Soundbank" ID="{D43F6695-6E28-42E4-B3A9-1DE657E8AF96}">
 					<ObjectInclusionList>
-						<ObjectRef Name="Play_MainTheme" ID="{1B1DD628-84BF-42D4-AE34-AD5262FF3649}" WorkUnitID="{3782E812-90C4-41C7-B890-249931AB82C1}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Play_PlayerMoveInput" ID="{4850588D-FF72-48C1-A0A2-E01FFEB69618}" WorkUnitID="{3782E812-90C4-41C7-B890-249931AB82C1}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Play_MainThemeBlend" ID="{BDB12BB8-24CB-48F3-94EA-56072D9C51B3}" WorkUnitID="{3782E812-90C4-41C7-B890-249931AB82C1}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Play_MainThemeSwitchContainer" ID="{DECB6575-70E8-48F8-BAD7-C2BE3D0F2ED7}" WorkUnitID="{3782E812-90C4-41C7-B890-249931AB82C1}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Play_PlayerMissedInput" ID="{A62B46C5-07DE-4D68-AB2C-693A48BB388E}" WorkUnitID="{3782E812-90C4-41C7-B890-249931AB82C1}" Origin="Manual" Filter="7"/>
 					</ObjectInclusionList>
 					<ObjectExclusionList/>
 					<GameSyncExclusionList/>

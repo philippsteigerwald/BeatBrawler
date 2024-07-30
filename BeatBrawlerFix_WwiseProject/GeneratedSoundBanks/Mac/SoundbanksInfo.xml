@@ -9,7 +9,7 @@
 	</RootPaths>
 	<DialogueEvents/>
 	<SoundBanks>
-		<SoundBank Id="1355168291" Type="User" Language="SFX" Hash="{D326F752-7CA2-0A14-FDB1-63ECE89D0199}">
+		<SoundBank Id="1355168291" Type="User" Language="SFX" Hash="{B4171227-19DC-0B48-34C4-6761F8AC1C7B}">
 			<ShortName>Init</ShortName>
 			<Path>Init.bnk</Path>
 			<Plugins>
@@ -21,24 +21,115 @@
 			<Busses>
 				<Bus Id="3803692087" Name="Master Audio Bus"/>
 			</Busses>
+			<GameParameters>
+				<GameParameter Id="1720865373" Name="WindowLFOHit"/>
+				<GameParameter Id="2848454361" Name="ComboScore"/>
+				<GameParameter Id="3579854146" Name="MainThemeDucking"/>
+			</GameParameters>
+			<StateGroups>
+				<StateGroup Id="824317709" Name="MainTheme">
+					<States>
+						<State Id="297954503" Name="Below10"/>
+						<State Id="314732218" Name="Below20"/>
+						<State Id="748895195" Name="None"/>
+						<State Id="3031790194" Name="Above20"/>
+					</States>
+				</StateGroup>
+			</StateGroups>
 		</SoundBank>
-		<SoundBank Id="1661994096" Type="User" Language="SFX" Hash="{28ADF5A4-92A6-D07A-38F6-6EA9936B6DFB}">
+		<SoundBank Id="1661994096" Type="User" Language="SFX" Hash="{9E2872BB-188F-DAE5-C978-F9A0AE3C9B6D}">
 			<ShortName>Soundbank</ShortName>
 			<Path>Soundbank.bnk</Path>
 			<Media>
-				<File Id="55032003" Language="SFX" Streaming="false" Location="Memory">
-					<ShortName>60bpmKick.wav</ShortName>
-					<CachePath>SFX/60bpmKick_FBC78EF0.wem</CachePath>
+				<File Id="7565987" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>AfricanDrums3.wav</ShortName>
+					<CachePath>SFX/AfricanDrums3_FBC78EF0.wem</CachePath>
+				</File>
+				<File Id="55012607" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>AfricanDrums2.wav</ShortName>
+					<CachePath>SFX/AfricanDrums2_FBC78EF0.wem</CachePath>
+				</File>
+				<File Id="108909347" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>ClosedHat07.wav</ShortName>
+					<CachePath>SFX/ClosedHat07_61EF1547.wem</CachePath>
+				</File>
+				<File Id="136383796" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>AfricanDrums1.wav</ShortName>
+					<CachePath>SFX/AfricanDrums1_FBC78EF0.wem</CachePath>
+				</File>
+				<File Id="191157904" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>AfricanDrums 1-Drum Rack.wav</ShortName>
+					<CachePath>SFX/AfricanDrums 1-Drum Rack_818F3B66.wem</CachePath>
+				</File>
+				<File Id="713891372" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>AfricanDrums 3-Drum Rack.wav</ShortName>
+					<CachePath>SFX/AfricanDrums 3-Drum Rack_818F3B66.wem</CachePath>
+				</File>
+				<File Id="744447504" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>AfricanDrums2.wav</ShortName>
+					<CachePath>SFX/AfricanDrums2_818F3B66.wem</CachePath>
+				</File>
+				<File Id="972989376" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Kick13.wav</ShortName>
+					<CachePath>SFX/Kick13_818F3B66.wem</CachePath>
 				</File>
 			</Media>
 			<Events>
-				<Event Id="3009755888" Name="Play_MainTheme" DurationType="OneShot" DurationMin="80.04233" DurationMax="80.04233">
+				<Event Id="4220441097" Name="Play_MainThemeBlend" DurationType="OneShot" DurationMin="40" DurationMax="40">
 					<MediaRefs>
-						<MediaRef Id="55032003"/>
+						<MediaRef Id="191157904"/>
+						<MediaRef Id="713891372"/>
+						<MediaRef Id="744447504"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="511845121" Name="Play_MainThemeSwitchContainer" DurationType="Infinite">
+					<SwitchContainers>
+						<SwitchContainer>
+							<SwitchValue GroupType="State" GroupId="824317709" Id="3031790194"/>
+							<MediaRefs>
+								<MediaRef Id="7565987"/>
+							</MediaRefs>
+						</SwitchContainer>
+						<SwitchContainer>
+							<SwitchValue GroupType="State" GroupId="824317709" Id="297954503"/>
+							<MediaRefs>
+								<MediaRef Id="136383796"/>
+							</MediaRefs>
+						</SwitchContainer>
+						<SwitchContainer>
+							<SwitchValue GroupType="State" GroupId="824317709" Id="314732218"/>
+							<MediaRefs>
+								<MediaRef Id="55012607"/>
+							</MediaRefs>
+						</SwitchContainer>
+					</SwitchContainers>
+				</Event>
+				<Event Id="1587821002" Name="Play_PlayerMissedInput" DurationType="OneShot" DurationMin="0.039897636" DurationMax="0.039897636">
+					<MediaRefs>
+						<MediaRef Id="108909347"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="2807642670" Name="Play_PlayerMoveInput" DurationType="OneShot" DurationMin="0.08857143" DurationMax="0.08857143">
+					<MediaRefs>
+						<MediaRef Id="972989376"/>
 					</MediaRefs>
 				</Event>
 			</Events>
+			<GameParameters>
+				<GameParameter Id="1720865373" Name="WindowLFOHit"/>
+				<GameParameter Id="2848454361" Name="ComboScore"/>
+			</GameParameters>
+			<StateGroups>
+				<StateGroup Id="824317709" Name="MainTheme">
+					<States>
+						<State Id="297954503" Name="Below10"/>
+						<State Id="314732218" Name="Below20"/>
+						<State Id="748895195" Name="None"/>
+						<State Id="3031790194" Name="Above20"/>
+					</States>
+				</StateGroup>
+			</StateGroups>
 		</SoundBank>
 	</SoundBanks>
-	<FileHash>{6ECE8494-5605-3AB8-A895-D996CED9F338}</FileHash>
+	<FileHash>{9E52C197-3D58-00CD-4203-9B1409DF1432}</FileHash>
 </SoundBanksInfo>

@@ -1,6 +1,29 @@
 Event	ID	Name			Wwise Object Path	Notes
-	3009755888	Play_MainTheme			\Default Work Unit\Play_MainTheme	
+	511845121	Play_MainThemeSwitchContainer			\Default Work Unit\Play_MainThemeSwitchContainer	
+	1587821002	Play_PlayerMissedInput			\Default Work Unit\Play_PlayerMissedInput	
+	2807642670	Play_PlayerMoveInput			\Default Work Unit\Play_PlayerMoveInput	
+	4220441097	Play_MainThemeBlend			\Default Work Unit\Play_MainThemeBlend	
+
+State Group	ID	Name			Wwise Object Path	Notes
+	824317709	MainTheme			\Default Work Unit\MainTheme	
+
+State	ID	Name	State Group			Notes
+	297954503	Below10	MainTheme			
+	314732218	Below20	MainTheme			
+	748895195	None	MainTheme			
+	3031790194	Above20	MainTheme			
+
+Game Parameter	ID	Name			Wwise Object Path	Notes
+	1720865373	WindowLFOHit			\Default Work Unit\WindowLFOHit	
+	2848454361	ComboScore			\Default Work Unit\ComboScore	
 
 In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
-	55032003	60bpm	Z:\Applications\Unity\Projects\BeatBrawlerFix\BeatBrawlerFix_WwiseProject\.cache\Mac\SFX\60bpmKick_FBC78EF0.wem		\Interactive Music Hierarchy\Default Work Unit\MainTheme\60bpm		14112096
+	7565987	AfricanDrums3	Z:\Applications\Unity\Projects\BeatBrawlerFix\BeatBrawlerFix_WwiseProject\.cache\Mac\SFX\AfricanDrums3_FBC78EF0.wem		\Interactive Music Hierarchy\Default Work Unit\MainThemeSwitchContainer\AfricanDrums3\AfricanDrums3\AfricanDrums3		7056096
+	55012607	AfricanDrums2	Z:\Applications\Unity\Projects\BeatBrawlerFix\BeatBrawlerFix_WwiseProject\.cache\Mac\SFX\AfricanDrums2_FBC78EF0.wem		\Interactive Music Hierarchy\Default Work Unit\MainThemeSwitchContainer\AfricanDrums2\AfricanDrums2\AfricanDrums2		7056096
+	108909347	PlayerMissedInput	Z:\Applications\Unity\Projects\BeatBrawlerFix\BeatBrawlerFix_WwiseProject\.cache\Mac\SFX\ClosedHat07_61EF1547.wem		\Actor-Mixer Hierarchy\Default Work Unit\InputEvents\PlayerMissedInput		1816
+	136383796	AfricanDrums1	Z:\Applications\Unity\Projects\BeatBrawlerFix\BeatBrawlerFix_WwiseProject\.cache\Mac\SFX\AfricanDrums1_FBC78EF0.wem		\Interactive Music Hierarchy\Default Work Unit\MainThemeSwitchContainer\AfricanDrums1\AfricanDrums1\AfricanDrums1		7056096
+	191157904	AfricanDrums 1-Drum Rack	Z:\Applications\Unity\Projects\BeatBrawlerFix\BeatBrawlerFix_WwiseProject\.cache\Mac\SFX\AfricanDrums 1-Drum Rack_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\MainThemeBlend\AfricanDrums 1-Drum Rack		7056096
+	713891372	AfricanDrums 3-Drum Rack	Z:\Applications\Unity\Projects\BeatBrawlerFix\BeatBrawlerFix_WwiseProject\.cache\Mac\SFX\AfricanDrums 3-Drum Rack_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\MainThemeBlend\AfricanDrums 3-Drum Rack		7056096
+	744447504	AfricanDrums 2 - Drum Rack	Z:\Applications\Unity\Projects\BeatBrawlerFix\BeatBrawlerFix_WwiseProject\.cache\Mac\SFX\AfricanDrums2_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\MainThemeBlend\AfricanDrums 2 - Drum Rack		7056096
+	972989376	PlayerMoveInput	Z:\Applications\Unity\Projects\BeatBrawlerFix\BeatBrawlerFix_WwiseProject\.cache\Mac\SFX\Kick13_818F3B66.wem		\Actor-Mixer Hierarchy\Default Work Unit\InputEvents\PlayerMoveInput		7908
 

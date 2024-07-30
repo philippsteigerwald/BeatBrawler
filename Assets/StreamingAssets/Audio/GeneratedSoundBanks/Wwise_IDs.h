@@ -13,8 +13,35 @@ namespace AK
 {
     namespace EVENTS
     {
-        static const AkUniqueID PLAY_MAINTHEME = 3009755888U;
+        static const AkUniqueID PLAY_MAINTHEMEBLEND = 4220441097U;
+        static const AkUniqueID PLAY_MAINTHEMESWITCHCONTAINER = 511845121U;
+        static const AkUniqueID PLAY_PLAYERMISSEDINPUT = 1587821002U;
+        static const AkUniqueID PLAY_PLAYERMOVEINPUT = 2807642670U;
     } // namespace EVENTS
+
+    namespace STATES
+    {
+        namespace MAINTHEME
+        {
+            static const AkUniqueID GROUP = 824317709U;
+
+            namespace STATE
+            {
+                static const AkUniqueID ABOVE20 = 3031790194U;
+                static const AkUniqueID BELOW10 = 297954503U;
+                static const AkUniqueID BELOW20 = 314732218U;
+                static const AkUniqueID NONE = 748895195U;
+            } // namespace STATE
+        } // namespace MAINTHEME
+
+    } // namespace STATES
+
+    namespace GAME_PARAMETERS
+    {
+        static const AkUniqueID COMBOSCORE = 2848454361U;
+        static const AkUniqueID MAINTHEMEDUCKING = 3579854146U;
+        static const AkUniqueID WINDOWLFOHIT = 1720865373U;
+    } // namespace GAME_PARAMETERS
 
     namespace BANKS
     {

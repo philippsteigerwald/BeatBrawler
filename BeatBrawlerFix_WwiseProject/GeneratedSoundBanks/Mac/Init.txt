@@ -1,3 +1,12 @@
+State Group	ID	Name			Wwise Object Path	Notes
+	824317709	MainTheme			\Default Work Unit\MainTheme	
+
+State	ID	Name	State Group			Notes
+	297954503	Below10	MainTheme			
+	314732218	Below20	MainTheme			
+	748895195	None	MainTheme			
+	3031790194	Above20	MainTheme			
+
 Audio Bus	ID	Name			Wwise Object Path	Notes
 	3803692087	Master Audio Bus			\Default Work Unit\Master Audio Bus	
 

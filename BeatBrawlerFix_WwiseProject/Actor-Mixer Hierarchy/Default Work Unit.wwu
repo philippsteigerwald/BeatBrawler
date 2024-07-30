@@ -1,6 +1,253 @@
 <?xml version="1.0" encoding="utf-8"?>
 <WwiseDocument Type="WorkUnit" ID="{E7B4887A-827A-4EA4-B071-B667C5D3A1DE}" SchemaVersion="119">
 	<AudioObjects>
-		<WorkUnit Name="Default Work Unit" ID="{E7B4887A-827A-4EA4-B071-B667C5D3A1DE}" PersistMode="Standalone"/>
+		<WorkUnit Name="Default Work Unit" ID="{E7B4887A-827A-4EA4-B071-B667C5D3A1DE}" PersistMode="Standalone">
+			<ChildrenList>
+				<BlendContainer Name="MainThemeBlend" ID="{4C5A6796-AAAA-4676-AEF0-0F35A26F4E6D}" ShortID="573411269">
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{DB653612-C39E-4CBA-9B4D-17106A38E044}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{D1DAB2D7-DB1D-4B38-A3D6-069A043E616A}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<Sound Name="AfricanDrums 1-Drum Rack" ID="{FDBA36C2-3700-426C-9BEE-1C1B7093CB92}" ShortID="577948971">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{DB653612-C39E-4CBA-9B4D-17106A38E044}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{D1DAB2D7-DB1D-4B38-A3D6-069A043E616A}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="AfricanDrums 1-Drum Rack" ID="{29F57C75-3CAE-467C-B0C2-3DE722C8B85E}">
+									<Language>SFX</Language>
+									<AudioFile>AfricanDrums 1-Drum Rack.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="191157904"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="AfricanDrums 1-Drum Rack" ID="{29F57C75-3CAE-467C-B0C2-3DE722C8B85E}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="AfricanDrums 3-Drum Rack" ID="{F57712C4-E063-4839-BCF6-A06F90D9EA9F}" ShortID="496517804">
+							<PropertyList>
+								<Property Name="Lowpass" Type="int16">
+									<ValueList>
+										<Value>33</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{DB653612-C39E-4CBA-9B4D-17106A38E044}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{D1DAB2D7-DB1D-4B38-A3D6-069A043E616A}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="AfricanDrums 3-Drum Rack" ID="{8A9E5C81-2448-460D-9C39-9E3CC5A540D3}">
+									<Language>SFX</Language>
+									<AudioFile>AfricanDrums 3-Drum Rack.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="713891372"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="AfricanDrums 3-Drum Rack" ID="{8A9E5C81-2448-460D-9C39-9E3CC5A540D3}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="AfricanDrums 2 - Drum Rack" ID="{06497157-78A4-4B3F-8EBD-DE854BD812D5}" ShortID="487980004">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{DB653612-C39E-4CBA-9B4D-17106A38E044}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{D1DAB2D7-DB1D-4B38-A3D6-069A043E616A}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="AfricanDrums2" ID="{26B369CE-CDC7-4777-881D-F9E115AA8C88}">
+									<Language>SFX</Language>
+									<AudioFile>AfricanDrums2.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="744447504"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="AfricanDrums2" ID="{26B369CE-CDC7-4777-881D-F9E115AA8C88}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+					</ChildrenList>
+					<BlendTrackList>
+						<BlendTrack Name="New Blend Track" ID="{D0FCDE61-113F-4DC9-A163-FAF7598639FF}" ShortID="119312576">
+							<PropertyList>
+								<Property Name="EnableCrossFading" Type="bool" Value="True"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="LayerCrossFadeControlInput">
+									<ObjectRef Name="ComboScore" ID="{EA93F510-0551-4E1F-AA33-CE50040F1EBB}" WorkUnitID="{913474A5-3AC6-4130-8EFE-67E0AC58019F}"/>
+								</Reference>
+							</ReferenceList>
+							<BlendTrackAssocList>
+								<BlendTrackAssoc>
+									<ItemRef Name="AfricanDrums 1-Drum Rack" ID="{FDBA36C2-3700-426C-9BEE-1C1B7093CB92}"/>
+									<CrossfadingInfo>
+										<LeftEdgePos>0</LeftEdgePos>
+										<LeftFadingMode>Automatic</LeftFadingMode>
+										<RightEdgePos>10</RightEdgePos>
+										<RightFadingMode>Automatic</RightFadingMode>
+									</CrossfadingInfo>
+								</BlendTrackAssoc>
+								<BlendTrackAssoc>
+									<ItemRef Name="AfricanDrums 2 - Drum Rack" ID="{06497157-78A4-4B3F-8EBD-DE854BD812D5}"/>
+									<CrossfadingInfo>
+										<LeftEdgePos>10</LeftEdgePos>
+										<LeftFadingMode>Automatic</LeftFadingMode>
+										<RightEdgePos>20</RightEdgePos>
+										<RightFadingMode>Automatic</RightFadingMode>
+									</CrossfadingInfo>
+								</BlendTrackAssoc>
+								<BlendTrackAssoc>
+									<ItemRef Name="AfricanDrums 3-Drum Rack" ID="{F57712C4-E063-4839-BCF6-A06F90D9EA9F}"/>
+									<CrossfadingInfo>
+										<LeftEdgePos>20</LeftEdgePos>
+										<LeftFadingMode>Automatic</LeftFadingMode>
+										<RightEdgePos>82.2231025662814</RightEdgePos>
+										<RightFadingMode>Automatic</RightFadingMode>
+									</CrossfadingInfo>
+								</BlendTrackAssoc>
+							</BlendTrackAssocList>
+						</BlendTrack>
+					</BlendTrackList>
+				</BlendContainer>
+				<ActorMixer Name="InputEvents" ID="{7399B1DC-A146-44EB-947F-7B0A124B9344}" ShortID="982247356">
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{DB653612-C39E-4CBA-9B4D-17106A38E044}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{D1DAB2D7-DB1D-4B38-A3D6-069A043E616A}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<Sound Name="PlayerMoveInput" ID="{A9CCA1E7-1D38-47EE-A217-0E621E3E84AC}" ShortID="578428844">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{DB653612-C39E-4CBA-9B4D-17106A38E044}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{D1DAB2D7-DB1D-4B38-A3D6-069A043E616A}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="Kick13" ID="{35CA72FE-009A-40F0-9048-77C7748B99C1}">
+									<Language>SFX</Language>
+									<AudioFile>Kick13.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="972989376"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ObjectLists>
+								<ObjectList Name="RTPC">
+									<Reference>
+										<Local>
+											<RTPC Name="" ID="{065C4FCD-3A52-402D-BDD6-46D427CAFD1C}" ShortID="443178205">
+												<PropertyList>
+													<Property Name="PropertyName" Type="string" Value="Highpass"/>
+												</PropertyList>
+												<ReferenceList>
+													<Reference Name="ControlInput">
+														<ObjectRef Name="WindowLFOHit" ID="{145BDFBA-E9C6-4D9B-9C28-E15A54D12042}" WorkUnitID="{913474A5-3AC6-4130-8EFE-67E0AC58019F}"/>
+													</Reference>
+													<Reference Name="Curve">
+														<Custom>
+															<Curve Name="" ID="{35247313-7DB4-4ED7-9AA7-306737C4595E}">
+																<PropertyList>
+																	<Property Name="Flags" Type="int32" Value="65537"/>
+																</PropertyList>
+																<PointList>
+																	<Point>
+																		<XPos>1</XPos>
+																		<YPos>100</YPos>
+																		<Flags>5</Flags>
+																	</Point>
+																	<Point>
+																		<XPos>1.41398</XPos>
+																		<YPos>47</YPos>
+																		<Flags>0</Flags>
+																	</Point>
+																	<Point>
+																		<XPos>4</XPos>
+																		<YPos>7</YPos>
+																		<Flags>37</Flags>
+																	</Point>
+																</PointList>
+															</Curve>
+														</Custom>
+													</Reference>
+												</ReferenceList>
+											</RTPC>
+										</Local>
+									</Reference>
+								</ObjectList>
+							</ObjectLists>
+							<ActiveSourceList>
+								<ActiveSource Name="Kick13" ID="{35CA72FE-009A-40F0-9048-77C7748B99C1}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="PlayerMissedInput" ID="{BC719B61-F77C-477A-BF4C-88DC369D0FA6}" ShortID="479042815">
+							<PropertyList>
+								<Property Name="Highpass" Type="int16">
+									<ValueList>
+										<Value>33</Value>
+									</ValueList>
+								</Property>
+								<Property Name="Pitch" Type="int32">
+									<ValueList>
+										<Value>-1240</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{DB653612-C39E-4CBA-9B4D-17106A38E044}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{D1DAB2D7-DB1D-4B38-A3D6-069A043E616A}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="ClosedHat07" ID="{2505EBD4-1D8B-4215-8404-9A92E398DDD2}">
+									<PropertyList>
+										<Property Name="FadeInDuration" Type="Real64" Value="0.00551186648292758"/>
+										<Property Name="FadeOutDuration" Type="Real64" Value="0.00708028377481754"/>
+										<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+										<Property Name="TrimEnd" Type="Real64" Value="0.019493186342061"/>
+									</PropertyList>
+									<Language>SFX</Language>
+									<AudioFile>ClosedHat07.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="108909347"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="ClosedHat07" ID="{2505EBD4-1D8B-4215-8404-9A92E398DDD2}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+					</ChildrenList>
+				</ActorMixer>
+			</ChildrenList>
+		</WorkUnit>
 	</AudioObjects>
 </WwiseDocument>

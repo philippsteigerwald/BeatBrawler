@@ -1,7 +1,10 @@
 using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEditor.Experimental.GraphView;
+using DG.Tweening;
+
 
 
 public class BufferedMovement : MonoBehaviour
@@ -51,20 +54,20 @@ public class BufferedMovement : MonoBehaviour
 	void Update()
 	{
 
-		if (!isMoving && ( Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.RightArrow) ) )
+		if (!isMoving && (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.RightArrow)) && arrowKeyCount == 0)
 		{	
-			if (inputEvaluation.WindowChecker()) // One of the Keys was pressed within one of the frames so the action is allowed / we can do an else here maybe a confusion animation  
-			{
+			//if (inputEvaluation.WindowChecker()) // One of the Keys was pressed within one of the frames so the action is allowed / we can do an else here maybe a confusion animation  
+			//{
 				//Debug.Log("We are inside of Window:");
 				//Debug.Log("The Key was pressed at " + WwiseClockSync.currentPositionInSong);
 				StartCoroutine(Buffer());
-			}
+			//}
 			
-			else
-			{
-				return; //Debug.Log("We are outside of a Window");
+			// else
+			// {
+			// 	return; //Debug.Log("We are outside of a Window");
 				
-			}
+			// }
 			
 			
 			//Debug.Log("Input Detected");
@@ -75,6 +78,8 @@ public class BufferedMovement : MonoBehaviour
 					(Input.GetKey(KeyCode.DownArrow) ? 1 : 0) +
 					(Input.GetKey(KeyCode.LeftArrow) ? 1 : 0) +
 					(Input.GetKey(KeyCode.RightArrow) ? 1 : 0);
+					
+		//Debug.Log("Arrow Keycount: " + arrowKeyCount);			
 		//Debug.Log("MovementDuration is " + moveDuration);	
 	}		
 	
@@ -90,39 +95,62 @@ public class BufferedMovement : MonoBehaviour
 		
 					Vector2 direction = Vector2.zero;
 	
-					if (Input.GetKey(KeyCode.UpArrow) && Input.GetKey(KeyCode.LeftArrow) && isGrounded())
+					if (Input.GetKey(KeyCode.UpArrow) && Input.GetKey(KeyCode.LeftArrow) && arrowKeyCount == 2 && isGrounded() && inputEvaluation.WindowChecker())
 					
 					{ 
+
 						direction = Vector2.up + Vector2.left;
 						StartCoroutine(Jump(direction));
-						//Debug.Log("Diagonal Jump Left");
+						inputEvaluation.UpdateAccordingToWindow();
+
+						
+
 					}
-					else if (Input.GetKey(KeyCode.UpArrow) && Input.GetKey(KeyCode.RightArrow) && isGrounded())
+					else if (Input.GetKey(KeyCode.UpArrow) && Input.GetKey(KeyCode.RightArrow) &&  arrowKeyCount == 2 && isGrounded() && inputEvaluation.WindowChecker())
 					{
+
 						direction = Vector2.up + Vector2.right;
 						StartCoroutine(Jump(direction));
-						//Debug.Log("Diagonal Jump Right");
+						inputEvaluation.UpdateAccordingToWindow();
+
 					}
-					else if (Input.GetKey(KeyCode.UpArrow) && arrowKeyCount == 1 && isGrounded())
+					else if (Input.GetKey(KeyCode.UpArrow) && arrowKeyCount == 1 && isGrounded() && inputEvaluation.WindowChecker())
 					{
+
+
 						direction = Vector2.up;
 						StartCoroutine(Jump(direction));
-						//Debug.Log("Jump");
+						inputEvaluation.UpdateAccordingToWindow();
+						
 					}
 					
-					else if (Input.GetKey(KeyCode.LeftArrow) && arrowKeyCount == 1 && isGrounded()) 
+					else if (Input.GetKey(KeyCode.LeftArrow) && arrowKeyCount == 1 && isGrounded() && inputEvaluation.WindowChecker())
 					{
+
+
 						direction = Vector2.left;
 						StartCoroutine(Move(direction));
-						//Debug.Log("Left");
+						inputEvaluation.UpdateAccordingToWindow();
+
 					}
 					
-					else if (Input.GetKey(KeyCode.RightArrow) && arrowKeyCount == 1 && isGrounded()) 
+					else if (Input.GetKey(KeyCode.RightArrow) && arrowKeyCount == 1 && isGrounded() && inputEvaluation.WindowChecker())
 					{
+
 						direction = Vector2.right;
 						StartCoroutine(Move(direction));
-						//Debug.Log("Right");
-					}		
+						inputEvaluation.UpdateAccordingToWindow();
+
+					}	
+					
+					else 
+					{
+
+						inputEvaluation.WindowChecker();
+						inputEvaluation.UpdateAccordingToWindow();
+						return;
+					}	
+
 		}
 		
 	

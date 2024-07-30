@@ -14,6 +14,50 @@
 						</Action>
 					</ChildrenList>
 				</Event>
+				<Event Name="Play_MainThemeBlend" ID="{BDB12BB8-24CB-48F3-94EA-56072D9C51B3}">
+					<ChildrenList>
+						<Action Name="" ID="{95055202-4E75-4A4A-8C01-80A9FE000232}" ShortID="788059325">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="MainThemeBlend" ID="{4C5A6796-AAAA-4676-AEF0-0F35A26F4E6D}" WorkUnitID="{E7B4887A-827A-4EA4-B071-B667C5D3A1DE}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Play_MainThemeSwitchContainer" ID="{DECB6575-70E8-48F8-BAD7-C2BE3D0F2ED7}">
+					<ChildrenList>
+						<Action Name="" ID="{CC6E227B-6AAB-44E5-A14B-01D472552ACC}" ShortID="245221344">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="MainThemeSwitchContainer" ID="{3DEA887B-862D-4496-84DE-EC19791DC76B}" WorkUnitID="{F8F2F14A-2BCC-4871-B412-1B4F0EC54D20}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Play_PlayerMissedInput" ID="{A62B46C5-07DE-4D68-AB2C-693A48BB388E}">
+					<ChildrenList>
+						<Action Name="" ID="{01398570-705D-4CC9-BDDE-E1F44C5103A4}" ShortID="425274979">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="PlayerMissedInput" ID="{BC719B61-F77C-477A-BF4C-88DC369D0FA6}" WorkUnitID="{E7B4887A-827A-4EA4-B071-B667C5D3A1DE}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Play_PlayerMoveInput" ID="{4850588D-FF72-48C1-A0A2-E01FFEB69618}">
+					<ChildrenList>
+						<Action Name="" ID="{37F4295B-DF31-454E-854D-A975DC65D0BB}" ShortID="458816745">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="PlayerMoveInput" ID="{A9CCA1E7-1D38-47EE-A217-0E621E3E84AC}" WorkUnitID="{E7B4887A-827A-4EA4-B071-B667C5D3A1DE}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
 			</ChildrenList>
 		</WorkUnit>
 	</Events>

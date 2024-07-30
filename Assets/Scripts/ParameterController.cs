@@ -4,10 +4,15 @@ using System.Collections.Generic;
 using AK.Wwise;
 using UnityEngine;
 
+
 public class ParameterController : MonoBehaviour
 {
 	
 public BufferedMovement BufferedMovement;
+
+
+public static int comboCounter; 
+public static int windowStatus;
 	
 
 [HideInInspector] public static float playbackSpeed = 1;
@@ -37,5 +42,25 @@ public BufferedMovement BufferedMovement;
 		BufferedMovement.moveDuration = WwiseClockSync.secondsPerBeat - BufferedMovement.movementDurationDecrease; // use this whenever BPM is updated 
 		//WwiseClockSync.updateBPM();
 		//Debug.Log("playbackspeed = " + playbackSpeed);
+		
+		
+		if (comboCounter >= 10 && comboCounter < 20)
+		{
+			AkSoundEngine.SetState("MainTheme","Below20");
+		} 
+		
+		if (comboCounter >= 20)
+		{
+			AkSoundEngine.SetState("MainTheme","Above20");
+		}
+		
+		if (comboCounter < 10 )
+		{
+			AkSoundEngine.SetState("MainTheme","Below10");
+		}
 	}
+	
+	
+	
+
 }

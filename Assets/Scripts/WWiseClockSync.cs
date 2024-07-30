@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -38,8 +39,13 @@ public class WwiseClockSync : MonoBehaviour
 	{
 		//want to make sure we don't double-play the music event
 		startedLevel = false;
+		//gameObject.AddComponent<AkGameObj>();	
+		
+		
 		StartMusic();
-		//Debug.Log("seconds per beats are: " + UpdateBPM(mainThemeID));		
+		
+		//Debug.Log("seconds per beats are: " + UpdateBPM(mainThemeID));	
+		
 	}
 
 	private void Update()
@@ -57,6 +63,16 @@ public class WwiseClockSync : MonoBehaviour
 		//Debug.Log("Current Position in Song: " + currentPositionInSong);
 		
 		
+		if (Input.GetKeyDown(KeyCode.Y))
+		
+		
+			{
+				
+				
+				//StartMusic();
+				//AkSoundEngine.PostEvent("Play_New_Sound_SFX" , this.gameObject);
+				//eventDummy.Post(this.gameObject);
+			}
 		
 		
 	}
@@ -66,6 +82,8 @@ public class WwiseClockSync : MonoBehaviour
 
 		
 		mainThemeID = mainTheme.Post(gameObject, (uint)(AkCallbackType.AK_MusicSyncAll | AkCallbackType.AK_EnableGetMusicPlayPosition | AkCallbackType.AK_MIDIEvent), MusicCallbackFunction);
+		AkSoundEngine.SetState("MainTheme","Below10");
+		
 			
 			//we also want to get accurate playback position (my tests show it's usually within 5 ms, sometimes as high as 30 ms), which requires a callback as well.
 			// syncall is a callback for all possible sync functions such as cue, beat, grid. This is why we need the switch container to understand which information is passed on. This is stored in in_info

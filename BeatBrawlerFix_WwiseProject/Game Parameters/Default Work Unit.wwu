@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <WwiseDocument Type="WorkUnit" ID="{913474A5-3AC6-4130-8EFE-67E0AC58019F}" SchemaVersion="119">
 	<GameParameters>
-		<WorkUnit Name="Default Work Unit" ID="{913474A5-3AC6-4130-8EFE-67E0AC58019F}" PersistMode="Standalone"/>
+		<WorkUnit Name="Default Work Unit" ID="{913474A5-3AC6-4130-8EFE-67E0AC58019F}" PersistMode="Standalone">
+			<ChildrenList>
+				<GameParameter Name="ComboScore" ID="{EA93F510-0551-4E1F-AA33-CE50040F1EBB}"/>
+				<GameParameter Name="WindowLFOHit" ID="{145BDFBA-E9C6-4D9B-9C28-E15A54D12042}">
+					<PropertyList>
+						<Property Name="InitialValue" Type="Real64" Value="3"/>
+						<Property Name="Max" Type="Real64" Value="4"/>
+						<Property Name="Min" Type="Real64" Value="1"/>
+					</PropertyList>
+				</GameParameter>
+				<GameParameter Name="MainThemeDucking" ID="{6A31892D-0AAA-40FE-9B92-3CBFF8A4E317}"/>
+			</ChildrenList>
+		</WorkUnit>
 	</GameParameters>
 </WwiseDocument>

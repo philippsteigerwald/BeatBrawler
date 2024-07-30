@@ -3,9 +3,9 @@
 	<InteractiveMusic>
 		<WorkUnit Name="Default Work Unit" ID="{F8F2F14A-2BCC-4871-B412-1B4F0EC54D20}" PersistMode="Standalone">
 			<ChildrenList>
-				<MusicSegment Name="MainTheme" ID="{0977F010-D16D-4AD3-AB6D-E5B554DB3633}" ShortID="468044962">
+				<MusicSwitchContainer Name="MainThemeSwitchContainer" ID="{3DEA887B-862D-4496-84DE-EC19791DC76B}" ShortID="300242197">
 					<PropertyList>
-						<Property Name="EndPosition" Type="Real64" Value="80042.325780248"/>
+						<Property Name="BelowThresholdBehavior" Type="int16" Value="1"/>
 						<Property Name="Tempo" Type="Real64" Value="60"/>
 					</PropertyList>
 					<ReferenceList>
@@ -15,81 +15,728 @@
 						<Reference Name="OutputBus">
 							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{D1DAB2D7-DB1D-4B38-A3D6-069A043E616A}"/>
 						</Reference>
+						<Reference Name="TransitionRoot">
+							<Custom>
+								<MusicTransition Name="Root" ID="{9F448679-8975-49EF-8A87-03C7AEF0C8CA}">
+									<PropertyList>
+										<Property Name="IsFolder" Type="bool" Value="True"/>
+									</PropertyList>
+									<ChildrenList>
+										<MusicTransition Name="Transition" ID="{68696643-4774-48AF-8BE9-A845E33CBD86}">
+											<PropertyList>
+												<Property Name="ExitSourceAt" Type="int16" Value="3"/>
+											</PropertyList>
+											<TransitionInfo/>
+										</MusicTransition>
+										<MusicTransition Name="Transition" ID="{8DFAE8A2-2FED-43E2-BC3F-D629734A476A}">
+											<PropertyList>
+												<Property Name="DestinationContextType" Type="int16" Value="2"/>
+												<Property Name="DestinationJumpPositionPreset" Type="int16" Value="1"/>
+												<Property Name="ExitSourceAt" Type="int16" Value="3"/>
+												<Property Name="SourceContextType" Type="int16" Value="2"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="DestinationContextObject">
+													<ObjectRef Name="AfricanDrums2" ID="{3A0C1439-FAEC-4B28-B1ED-DD8F3D4066DC}" WorkUnitID="{F8F2F14A-2BCC-4871-B412-1B4F0EC54D20}"/>
+												</Reference>
+												<Reference Name="SourceContextObject">
+													<ObjectRef Name="AfricanDrums1" ID="{DB66109A-3D81-4172-B3C1-12901C97C964}" WorkUnitID="{F8F2F14A-2BCC-4871-B412-1B4F0EC54D20}"/>
+												</Reference>
+											</ReferenceList>
+											<TransitionInfo/>
+										</MusicTransition>
+										<MusicTransition Name="Transition" ID="{3625B2A0-6B01-452C-838B-B0B0ADBECDF3}">
+											<PropertyList>
+												<Property Name="DestinationContextType" Type="int16" Value="2"/>
+												<Property Name="DestinationJumpPositionPreset" Type="int16" Value="1"/>
+												<Property Name="ExitSourceAt" Type="int16" Value="3"/>
+												<Property Name="SourceContextType" Type="int16" Value="2"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="DestinationContextObject">
+													<ObjectRef Name="AfricanDrums3" ID="{8F54464A-73A1-4C8F-9610-884B8D0B1E7C}" WorkUnitID="{F8F2F14A-2BCC-4871-B412-1B4F0EC54D20}"/>
+												</Reference>
+												<Reference Name="SourceContextObject">
+													<ObjectRef Name="AfricanDrums2" ID="{3A0C1439-FAEC-4B28-B1ED-DD8F3D4066DC}" WorkUnitID="{F8F2F14A-2BCC-4871-B412-1B4F0EC54D20}"/>
+												</Reference>
+											</ReferenceList>
+											<TransitionInfo/>
+										</MusicTransition>
+										<MusicTransition Name="Transition" ID="{E9955345-7103-4CCA-B1AC-C18429C98AEC}">
+											<PropertyList>
+												<Property Name="DestinationContextType" Type="int16" Value="2"/>
+												<Property Name="EnableDestinationFadeIn" Type="bool" Value="True"/>
+												<Property Name="EnableSourceFadeOut" Type="bool" Value="True"/>
+												<Property Name="EnableTransitionFadeIn" Type="bool" Value="True"/>
+												<Property Name="EnableTransitionFadeOut" Type="bool" Value="True"/>
+												<Property Name="ExitSourceAt" Type="int16" Value="3"/>
+												<Property Name="PlaySourcePostExit" Type="bool" Value="False"/>
+												<Property Name="PlayTransitionPostExit" Type="bool" Value="False"/>
+												<Property Name="PlayTransitionPreEntry" Type="bool" Value="False"/>
+												<Property Name="SourceContextType" Type="int16" Value="2"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="DestinationContextObject">
+													<ObjectRef Name="AfricanDrums1" ID="{DB66109A-3D81-4172-B3C1-12901C97C964}" WorkUnitID="{F8F2F14A-2BCC-4871-B412-1B4F0EC54D20}"/>
+												</Reference>
+												<Reference Name="SourceContextObject">
+													<ObjectRef Name="AfricanDrums3" ID="{8F54464A-73A1-4C8F-9610-884B8D0B1E7C}" WorkUnitID="{F8F2F14A-2BCC-4871-B412-1B4F0EC54D20}"/>
+												</Reference>
+											</ReferenceList>
+											<TransitionInfo>
+												<TransitionObjectRef Name="WhistleTransition" ID="{4410206B-FE9A-4051-84D0-2CE2D7F15C17}" WorkUnitID="{F8F2F14A-2BCC-4871-B412-1B4F0EC54D20}"/>
+												<SourceFadeOut>
+													<MusicFade Name="Source Fade-out" ID="{DB3C2E41-08A3-488C-8DA1-0F75ACF4AB80}">
+														<PropertyList>
+															<Property Name="FadeCurve" Type="int16" Value="1"/>
+															<Property Name="FadeOffset" Type="Real64" Value="1.2"/>
+															<Property Name="FadeTime" Type="Real64" Value="1.7"/>
+															<Property Name="FadeType" Type="int16" Value="1"/>
+														</PropertyList>
+													</MusicFade>
+												</SourceFadeOut>
+												<DestinationFadeIn>
+													<MusicFade Name="Destination Fade-in" ID="{DB47E458-F5E7-40E8-968A-9D486B61B444}">
+														<PropertyList>
+															<Property Name="FadeCurve" Type="int16" Value="6"/>
+															<Property Name="FadeOffset" Type="Real64" Value="-0.6"/>
+															<Property Name="FadeTime" Type="Real64" Value="3.3"/>
+														</PropertyList>
+													</MusicFade>
+												</DestinationFadeIn>
+											</TransitionInfo>
+										</MusicTransition>
+										<MusicTransition Name="Transition" ID="{8A47023B-EFA5-40A1-B2A0-457CB0D07B30}">
+											<PropertyList>
+												<Property Name="DestinationContextType" Type="int16" Value="2"/>
+												<Property Name="EnableDestinationFadeIn" Type="bool" Value="True"/>
+												<Property Name="EnableSourceFadeOut" Type="bool" Value="True"/>
+												<Property Name="EnableTransitionFadeIn" Type="bool" Value="True"/>
+												<Property Name="EnableTransitionFadeOut" Type="bool" Value="True"/>
+												<Property Name="ExitSourceAt" Type="int16" Value="3"/>
+												<Property Name="PlaySourcePostExit" Type="bool" Value="False"/>
+												<Property Name="PlayTransitionPostExit" Type="bool" Value="False"/>
+												<Property Name="PlayTransitionPreEntry" Type="bool" Value="False"/>
+												<Property Name="SourceContextType" Type="int16" Value="2"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="DestinationContextObject">
+													<ObjectRef Name="AfricanDrums1" ID="{DB66109A-3D81-4172-B3C1-12901C97C964}" WorkUnitID="{F8F2F14A-2BCC-4871-B412-1B4F0EC54D20}"/>
+												</Reference>
+												<Reference Name="SourceContextObject">
+													<ObjectRef Name="AfricanDrums2" ID="{3A0C1439-FAEC-4B28-B1ED-DD8F3D4066DC}" WorkUnitID="{F8F2F14A-2BCC-4871-B412-1B4F0EC54D20}"/>
+												</Reference>
+											</ReferenceList>
+											<TransitionInfo>
+												<TransitionObjectRef Name="WhistleTransition" ID="{4410206B-FE9A-4051-84D0-2CE2D7F15C17}" WorkUnitID="{F8F2F14A-2BCC-4871-B412-1B4F0EC54D20}"/>
+												<SourceFadeOut>
+													<MusicFade Name="Source Fade-out" ID="{8D06B334-2EC2-45D3-B07F-AC2424CE7780}">
+														<PropertyList>
+															<Property Name="FadeCurve" Type="int16" Value="1"/>
+															<Property Name="FadeOffset" Type="Real64" Value="1.2"/>
+															<Property Name="FadeTime" Type="Real64" Value="1.7"/>
+															<Property Name="FadeType" Type="int16" Value="1"/>
+														</PropertyList>
+													</MusicFade>
+												</SourceFadeOut>
+												<DestinationFadeIn>
+													<MusicFade Name="Destination Fade-in" ID="{B70A93D8-EFCC-422C-986E-AAD656CACEA0}">
+														<PropertyList>
+															<Property Name="FadeCurve" Type="int16" Value="6"/>
+															<Property Name="FadeOffset" Type="Real64" Value="-0.6"/>
+															<Property Name="FadeTime" Type="Real64" Value="3.3"/>
+														</PropertyList>
+													</MusicFade>
+												</DestinationFadeIn>
+											</TransitionInfo>
+										</MusicTransition>
+									</ChildrenList>
+									<TransitionInfo/>
+								</MusicTransition>
+							</Custom>
+						</Reference>
 					</ReferenceList>
 					<ChildrenList>
-						<MusicTrack Name="60bpm" ID="{D9FD7242-0166-4579-9AC5-16635F7E4708}" ShortID="522283801">
+						<MusicSwitchContainer Name="AfricanDrums1" ID="{B516B434-E676-4C44-85AC-1A61F7EF96AF}" ShortID="604208461">
 							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{DB653612-C39E-4CBA-9B4D-17106A38E044}"/>
+								</Reference>
 								<Reference Name="OutputBus">
 									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{D1DAB2D7-DB1D-4B38-A3D6-069A043E616A}"/>
 								</Reference>
 								<Reference Name="TransitionRoot">
 									<Custom>
-										<MusicTransition Name="Root" ID="{B38665AC-8AC4-4BD4-8710-1ADC8734ACA5}">
+										<MusicTransition Name="Root" ID="{3E3208AB-C25F-4B44-935E-CA308DC5F820}">
 											<PropertyList>
 												<Property Name="IsFolder" Type="bool" Value="True"/>
 											</PropertyList>
+											<ChildrenList>
+												<MusicTransition Name="Transition" ID="{86FD4F89-6EF0-4962-B773-0F70A7C5F7E2}">
+													<TransitionInfo/>
+												</MusicTransition>
+											</ChildrenList>
 											<TransitionInfo/>
 										</MusicTransition>
 									</Custom>
 								</Reference>
 							</ReferenceList>
 							<ChildrenList>
-								<AudioFileSource Name="60bpmKick" ID="{47885074-BBFA-4A14-8845-65853CF3FBE6}">
-									<Language>SFX</Language>
-									<AudioFile>60bpmKick.wav</AudioFile>
-									<MediaIDList>
-										<MediaID ID="55032003"/>
-									</MediaIDList>
-								</AudioFileSource>
+								<MusicSegment Name="AfricanDrums1" ID="{DB66109A-3D81-4172-B3C1-12901C97C964}" ShortID="905938818">
+									<PropertyList>
+										<Property Name="EndPosition" Type="Real64" Value="40000"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{DB653612-C39E-4CBA-9B4D-17106A38E044}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{D1DAB2D7-DB1D-4B38-A3D6-069A043E616A}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<MusicTrack Name="AfricanDrums1" ID="{20F851C1-356D-4681-827B-9C70D55CFAF9}" ShortID="639054667">
+											<ReferenceList>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{D1DAB2D7-DB1D-4B38-A3D6-069A043E616A}"/>
+												</Reference>
+												<Reference Name="TransitionRoot">
+													<Custom>
+														<MusicTransition Name="Root" ID="{640CB433-4144-4461-BF77-79F06AAB7EE4}">
+															<PropertyList>
+																<Property Name="IsFolder" Type="bool" Value="True"/>
+															</PropertyList>
+															<TransitionInfo/>
+														</MusicTransition>
+													</Custom>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="AfricanDrums1" ID="{22D2F22E-6B4F-4340-A7CF-1A206F0446C3}">
+													<Language>SFX</Language>
+													<AudioFile>AfricanDrums1.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="136383796"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ObjectLists>
+												<ObjectList Name="Sequences">
+													<Reference>
+														<Local>
+															<MusicTrackSequence Name="" ID="{DC2EF83E-8D23-45F3-A77E-5948F04625FB}">
+																<ObjectLists>
+																	<ObjectList Name="Clips">
+																		<Reference>
+																			<Local>
+																				<MusicClip Name="AfricanDrums1" ID="{6B2391BD-1019-4E1D-ADD3-01DADC137A9C}">
+																					<PropertyList>
+																						<Property Name="EndTrimOffset" Type="Real64" Value="40000"/>
+																						<Property Name="FadeInMode" Type="int16" Value="0"/>
+																						<Property Name="FadeOutMode" Type="int16" Value="0"/>
+																					</PropertyList>
+																					<AudioSourceRef Name="AfricanDrums1" ID="{22D2F22E-6B4F-4340-A7CF-1A206F0446C3}"/>
+																				</MusicClip>
+																			</Local>
+																		</Reference>
+																	</ObjectList>
+																</ObjectLists>
+															</MusicTrackSequence>
+														</Local>
+													</Reference>
+												</ObjectList>
+											</ObjectLists>
+										</MusicTrack>
+									</ChildrenList>
+									<ObjectLists>
+										<ObjectList Name="Cues">
+											<Reference>
+												<Local>
+													<MusicCue Name="Entry Cue" ID="{0C9DAE39-A0AC-4DB9-BD08-77EA97C61F5C}"/>
+												</Local>
+											</Reference>
+											<Reference>
+												<Local>
+													<MusicCue Name="Exit Cue" ID="{F9264AC9-B69E-4EA3-B7B2-FEB0392937B9}">
+														<PropertyList>
+															<Property Name="CueType" Type="int16" Value="1"/>
+															<Property Name="TimeMs" Type="Real64" Value="40000"/>
+														</PropertyList>
+													</MusicCue>
+												</Local>
+											</Reference>
+										</ObjectList>
+									</ObjectLists>
+								</MusicSegment>
+							</ChildrenList>
+						</MusicSwitchContainer>
+						<MusicSwitchContainer Name="AfricanDrums2" ID="{53E1C4D9-6332-4981-B21F-CB031EC38534}" ShortID="1046550464">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{DB653612-C39E-4CBA-9B4D-17106A38E044}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{D1DAB2D7-DB1D-4B38-A3D6-069A043E616A}"/>
+								</Reference>
+								<Reference Name="TransitionRoot">
+									<Custom>
+										<MusicTransition Name="Root" ID="{45AE3CC7-72E7-4B0F-83AB-59E300715156}">
+											<PropertyList>
+												<Property Name="IsFolder" Type="bool" Value="True"/>
+											</PropertyList>
+											<ChildrenList>
+												<MusicTransition Name="Transition" ID="{F8F1DE46-CD22-4072-8DC5-C0A1B6D9F575}">
+													<TransitionInfo/>
+												</MusicTransition>
+											</ChildrenList>
+											<TransitionInfo/>
+										</MusicTransition>
+									</Custom>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<MusicSegment Name="AfricanDrums2" ID="{3A0C1439-FAEC-4B28-B1ED-DD8F3D4066DC}" ShortID="120329647">
+									<PropertyList>
+										<Property Name="EndPosition" Type="Real64" Value="40000"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{DB653612-C39E-4CBA-9B4D-17106A38E044}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{D1DAB2D7-DB1D-4B38-A3D6-069A043E616A}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<MusicTrack Name="AfricanDrums2" ID="{D503F488-0BC3-4506-87BB-BE270BA505EF}" ShortID="392511093">
+											<ReferenceList>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{D1DAB2D7-DB1D-4B38-A3D6-069A043E616A}"/>
+												</Reference>
+												<Reference Name="TransitionRoot">
+													<Custom>
+														<MusicTransition Name="Root" ID="{A1E9E56D-39C4-4696-96F7-36CA5A88D9FF}">
+															<PropertyList>
+																<Property Name="IsFolder" Type="bool" Value="True"/>
+															</PropertyList>
+															<TransitionInfo/>
+														</MusicTransition>
+													</Custom>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="AfricanDrums2" ID="{7AB1DF02-1047-4320-A348-3A95DC5F9304}">
+													<Language>SFX</Language>
+													<AudioFile>AfricanDrums2.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="55012607"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ObjectLists>
+												<ObjectList Name="Sequences">
+													<Reference>
+														<Local>
+															<MusicTrackSequence Name="" ID="{07C2299F-2083-4EFD-BFBA-7CC7F423AFFB}">
+																<ObjectLists>
+																	<ObjectList Name="Clips">
+																		<Reference>
+																			<Local>
+																				<MusicClip Name="AfricanDrums2" ID="{A34684C6-AD45-4635-A7D6-69B17FA36723}">
+																					<PropertyList>
+																						<Property Name="EndTrimOffset" Type="Real64" Value="40000"/>
+																						<Property Name="FadeInMode" Type="int16" Value="0"/>
+																						<Property Name="FadeOutMode" Type="int16" Value="0"/>
+																					</PropertyList>
+																					<AudioSourceRef Name="AfricanDrums2" ID="{7AB1DF02-1047-4320-A348-3A95DC5F9304}"/>
+																				</MusicClip>
+																			</Local>
+																		</Reference>
+																	</ObjectList>
+																</ObjectLists>
+															</MusicTrackSequence>
+														</Local>
+													</Reference>
+												</ObjectList>
+											</ObjectLists>
+										</MusicTrack>
+									</ChildrenList>
+									<ObjectLists>
+										<ObjectList Name="Cues">
+											<Reference>
+												<Local>
+													<MusicCue Name="Entry Cue" ID="{D7D8E8BF-9DA8-44F2-9AF0-802DDA52DEA7}"/>
+												</Local>
+											</Reference>
+											<Reference>
+												<Local>
+													<MusicCue Name="Exit Cue" ID="{50BACC78-B024-42C8-97D1-DF3DBF6D2B6D}">
+														<PropertyList>
+															<Property Name="CueType" Type="int16" Value="1"/>
+															<Property Name="TimeMs" Type="Real64" Value="40000"/>
+														</PropertyList>
+													</MusicCue>
+												</Local>
+											</Reference>
+										</ObjectList>
+									</ObjectLists>
+								</MusicSegment>
+							</ChildrenList>
+						</MusicSwitchContainer>
+						<MusicSwitchContainer Name="AfricanDrums3" ID="{F0D5C853-5AC5-43EB-997A-CFBFC77DC5A1}" ShortID="638902298">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{DB653612-C39E-4CBA-9B4D-17106A38E044}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{D1DAB2D7-DB1D-4B38-A3D6-069A043E616A}"/>
+								</Reference>
+								<Reference Name="TransitionRoot">
+									<Custom>
+										<MusicTransition Name="Root" ID="{3CCC33ED-6066-4E13-A4A0-65CBAC6DB0A4}">
+											<PropertyList>
+												<Property Name="IsFolder" Type="bool" Value="True"/>
+											</PropertyList>
+											<ChildrenList>
+												<MusicTransition Name="Transition" ID="{9DF8FF6C-D421-46E5-929B-6C3B840626CB}">
+													<TransitionInfo/>
+												</MusicTransition>
+											</ChildrenList>
+											<TransitionInfo/>
+										</MusicTransition>
+									</Custom>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<MusicSegment Name="AfricanDrums3" ID="{8F54464A-73A1-4C8F-9610-884B8D0B1E7C}" ShortID="279320018">
+									<PropertyList>
+										<Property Name="EndPosition" Type="Real64" Value="40000"/>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-1</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{DB653612-C39E-4CBA-9B4D-17106A38E044}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{D1DAB2D7-DB1D-4B38-A3D6-069A043E616A}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<MusicTrack Name="AfricanDrums3" ID="{BFC1C2B8-0C56-49E8-9FB6-47A7B1E75520}" ShortID="785815407">
+											<ReferenceList>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{D1DAB2D7-DB1D-4B38-A3D6-069A043E616A}"/>
+												</Reference>
+												<Reference Name="TransitionRoot">
+													<Custom>
+														<MusicTransition Name="Root" ID="{D62A073D-A3F3-4722-A9F9-29BD51C6B8BE}">
+															<PropertyList>
+																<Property Name="IsFolder" Type="bool" Value="True"/>
+															</PropertyList>
+															<TransitionInfo/>
+														</MusicTransition>
+													</Custom>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="AfricanDrums3" ID="{5A4F0B6A-0F46-4A24-8C4C-9535361CDC7D}">
+													<Language>SFX</Language>
+													<AudioFile>AfricanDrums3.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="7565987"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ObjectLists>
+												<ObjectList Name="Sequences">
+													<Reference>
+														<Local>
+															<MusicTrackSequence Name="" ID="{78835F2B-B890-4272-9B34-C44C3D520D24}">
+																<ObjectLists>
+																	<ObjectList Name="Clips">
+																		<Reference>
+																			<Local>
+																				<MusicClip Name="AfricanDrums3" ID="{6593DAE8-B621-40F4-87AF-CF6A1D8C7865}">
+																					<PropertyList>
+																						<Property Name="EndTrimOffset" Type="Real64" Value="40000"/>
+																						<Property Name="FadeInMode" Type="int16" Value="0"/>
+																						<Property Name="FadeOutMode" Type="int16" Value="0"/>
+																					</PropertyList>
+																					<AudioSourceRef Name="AfricanDrums3" ID="{5A4F0B6A-0F46-4A24-8C4C-9535361CDC7D}"/>
+																				</MusicClip>
+																			</Local>
+																		</Reference>
+																	</ObjectList>
+																</ObjectLists>
+															</MusicTrackSequence>
+														</Local>
+													</Reference>
+												</ObjectList>
+											</ObjectLists>
+										</MusicTrack>
+									</ChildrenList>
+									<ObjectLists>
+										<ObjectList Name="Cues">
+											<Reference>
+												<Local>
+													<MusicCue Name="Entry Cue" ID="{37C50367-60E1-4CC0-A3EC-FB2BA64FDC5A}"/>
+												</Local>
+											</Reference>
+											<Reference>
+												<Local>
+													<MusicCue Name="Exit Cue" ID="{38F73879-98B7-4772-B119-6E8A85FA6D41}">
+														<PropertyList>
+															<Property Name="CueType" Type="int16" Value="1"/>
+															<Property Name="TimeMs" Type="Real64" Value="40000"/>
+														</PropertyList>
+													</MusicCue>
+												</Local>
+											</Reference>
+										</ObjectList>
+									</ObjectLists>
+								</MusicSegment>
+							</ChildrenList>
+						</MusicSwitchContainer>
+						<MusicSegment Name="WhistleTransition" ID="{4410206B-FE9A-4051-84D0-2CE2D7F15C17}" ShortID="150752565">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{DB653612-C39E-4CBA-9B4D-17106A38E044}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{D1DAB2D7-DB1D-4B38-A3D6-069A043E616A}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<MusicTrack Name="Whistle" ID="{C8AEACAD-4D31-4B36-9FCE-4BE5680C8F92}" ShortID="678936412">
+									<PropertyList>
+										<Property Name="Lowpass" Type="int16">
+											<ValueList>
+												<Value>37</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{D1DAB2D7-DB1D-4B38-A3D6-069A043E616A}"/>
+										</Reference>
+										<Reference Name="TransitionRoot">
+											<Custom>
+												<MusicTransition Name="Root" ID="{F33DE581-BBB9-46C3-BA93-BDF04BA8E729}">
+													<PropertyList>
+														<Property Name="IsFolder" Type="bool" Value="True"/>
+													</PropertyList>
+													<TransitionInfo/>
+												</MusicTransition>
+											</Custom>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="mixkit-cartoon-toy-whistle-616" ID="{F250DDB9-A6D7-45D6-BA12-585B5210A1A0}">
+											<Language>SFX</Language>
+											<AudioFile>mixkit-cartoon-toy-whistle-616.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="565859070"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ObjectLists>
+										<ObjectList Name="Sequences">
+											<Reference>
+												<Local>
+													<MusicTrackSequence Name="" ID="{F01FED0E-2B83-4C9B-9C6E-527621CFF952}">
+														<ObjectLists>
+															<ObjectList Name="Clips">
+																<Reference>
+																	<Local>
+																		<MusicClip Name="mixkit-cartoon-toy-whistle-616" ID="{4D9C5A7B-8910-48AA-8D0F-63AD88F04BB6}">
+																			<PropertyList>
+																				<Property Name="BeginTrimOffset" Type="Real64" Value="126.91466083151"/>
+																				<Property Name="EndTrimOffset" Type="Real64" Value="222.936383889807"/>
+																				<Property Name="FadeOutDuration" Type="Real64" Value="30.6345733041576"/>
+																				<Property Name="PlayAt" Type="Real64" Value="-6.56455142231952"/>
+																			</PropertyList>
+																			<AudioSourceRef Name="mixkit-cartoon-toy-whistle-616" ID="{F250DDB9-A6D7-45D6-BA12-585B5210A1A0}"/>
+																			<PropertyCurveList>
+																				<PropertyCurve PropertyName="Highpass">
+																					<Curve Name="" ID="{B02B77EA-C586-44AD-A725-24FFBCEC9F96}">
+																						<PropertyList>
+																							<Property Name="Flags" Type="int32" Value="1"/>
+																						</PropertyList>
+																						<PointList>
+																							<Point>
+																								<XPos>0.12691</XPos>
+																								<YPos>0</YPos>
+																								<Flags>5</Flags>
+																							</Point>
+																							<Point>
+																								<XPos>0.22294</XPos>
+																								<YPos>0</YPos>
+																								<Flags>37</Flags>
+																							</Point>
+																						</PointList>
+																					</Curve>
+																				</PropertyCurve>
+																				<PropertyCurve PropertyName="Lowpass">
+																					<Curve Name="" ID="{36A6F11B-30BD-4BD7-9205-EC5E492A81D9}">
+																						<PropertyList>
+																							<Property Name="Flags" Type="int32" Value="1"/>
+																						</PropertyList>
+																						<PointList>
+																							<Point>
+																								<XPos>0.12691</XPos>
+																								<YPos>0</YPos>
+																								<Flags>5</Flags>
+																							</Point>
+																							<Point>
+																								<XPos>0.22294</XPos>
+																								<YPos>0</YPos>
+																								<Flags>37</Flags>
+																							</Point>
+																						</PointList>
+																					</Curve>
+																				</PropertyCurve>
+																				<PropertyCurve PropertyName="Volume">
+																					<Curve Name="" ID="{FB825F3F-B854-49FB-A298-299DF52AF8B4}">
+																						<PropertyList>
+																							<Property Name="Flags" Type="int32" Value="3"/>
+																						</PropertyList>
+																						<PointList>
+																							<Point>
+																								<XPos>0.12691</XPos>
+																								<YPos>0</YPos>
+																								<Flags>5</Flags>
+																							</Point>
+																							<Point>
+																								<XPos>0.22294</XPos>
+																								<YPos>0</YPos>
+																								<Flags>37</Flags>
+																							</Point>
+																						</PointList>
+																					</Curve>
+																				</PropertyCurve>
+																			</PropertyCurveList>
+																		</MusicClip>
+																	</Local>
+																</Reference>
+															</ObjectList>
+														</ObjectLists>
+													</MusicTrackSequence>
+												</Local>
+											</Reference>
+										</ObjectList>
+									</ObjectLists>
+								</MusicTrack>
 							</ChildrenList>
 							<ObjectLists>
-								<ObjectList Name="Sequences">
+								<ObjectList Name="Cues">
 									<Reference>
 										<Local>
-											<MusicTrackSequence Name="" ID="{F61D41A8-80B4-4A42-90B0-6D38B7082539}">
-												<ObjectLists>
-													<ObjectList Name="Clips">
-														<Reference>
-															<Local>
-																<MusicClip Name="60bpmKick" ID="{6AA75FED-429D-4B4A-BFD2-2B0EAFD7A54A}">
-																	<PropertyList>
-																		<Property Name="EndTrimOffset" Type="Real64" Value="80000"/>
-																		<Property Name="FadeInMode" Type="int16" Value="0"/>
-																		<Property Name="FadeOutMode" Type="int16" Value="0"/>
-																	</PropertyList>
-																	<AudioSourceRef Name="60bpmKick" ID="{47885074-BBFA-4A14-8845-65853CF3FBE6}"/>
-																</MusicClip>
-															</Local>
-														</Reference>
-													</ObjectList>
-												</ObjectLists>
-											</MusicTrackSequence>
+											<MusicCue Name="Entry Cue" ID="{055A3717-2D4F-4982-A468-8F912EAF8D8F}"/>
+										</Local>
+									</Reference>
+									<Reference>
+										<Local>
+											<MusicCue Name="Exit Cue" ID="{0D23C7AB-8E38-4C20-A22B-D333334CC60B}">
+												<PropertyList>
+													<Property Name="CueType" Type="int16" Value="1"/>
+													<Property Name="TimeMs" Type="Real64" Value="220.459518599562"/>
+												</PropertyList>
+											</MusicCue>
 										</Local>
 									</Reference>
 								</ObjectList>
 							</ObjectLists>
-						</MusicTrack>
+						</MusicSegment>
 					</ChildrenList>
+					<StateInfo>
+						<StateGroupList>
+							<StateGroupInfo MusicSyncType="3">
+								<StateGroupRef Name="MainTheme" ID="{FE12ADCB-02D1-4A0D-A73D-33E1849253FC}"/>
+							</StateGroupInfo>
+						</StateGroupList>
+						<CustomStateList>
+							<CustomState>
+								<StateRef Name="Below10" ID="{3C7252CE-F5BD-4076-96BF-F0E87E5BFC38}"/>
+								<CustomState Name="" ID="{7BE2736D-58E9-496B-9875-94BB7BA6A8FC}" ShortID="374402536"/>
+							</CustomState>
+							<CustomState>
+								<StateRef Name="Below20" ID="{A14073D7-2D4A-43BB-AC41-252AAAC7EA61}"/>
+								<CustomState Name="" ID="{69139935-812E-408D-A98B-15BE61DBA316}" ShortID="428248567"/>
+							</CustomState>
+							<CustomState>
+								<StateRef Name="Above20" ID="{9612A71A-8FA8-4570-9561-F0891C725C8F}"/>
+								<CustomState Name="" ID="{F69B12C1-7F34-4A20-879D-205FA2B0CC76}" ShortID="559112700"/>
+							</CustomState>
+						</CustomStateList>
+					</StateInfo>
 					<ObjectLists>
-						<ObjectList Name="Cues">
+						<ObjectList Name="Arguments">
+							<Reference>
+								<ObjectRef Name="MainTheme" ID="{FE12ADCB-02D1-4A0D-A73D-33E1849253FC}" WorkUnitID="{F5C615EC-85DB-4D07-A5C1-1176CFFA690F}"/>
+							</Reference>
+						</ObjectList>
+						<ObjectList Name="Entries">
 							<Reference>
 								<Local>
-									<MusicCue Name="Entry Cue" ID="{44EE076E-DD75-43E1-8F84-867BD4A4C53E}"/>
+									<MultiSwitchEntry Name="" ID="{EB006B7B-CE7A-496C-AEB5-FEB33DB4527B}">
+										<ReferenceList>
+											<Reference Name="AudioNode">
+												<ObjectRef Name="AfricanDrums3" ID="{8F54464A-73A1-4C8F-9610-884B8D0B1E7C}" WorkUnitID="{F8F2F14A-2BCC-4871-B412-1B4F0EC54D20}"/>
+											</Reference>
+										</ReferenceList>
+										<ObjectLists>
+											<ObjectList Name="EntryPath">
+												<Reference>
+													<ObjectRef Name="Above20" ID="{9612A71A-8FA8-4570-9561-F0891C725C8F}" WorkUnitID="{F5C615EC-85DB-4D07-A5C1-1176CFFA690F}"/>
+												</Reference>
+											</ObjectList>
+										</ObjectLists>
+									</MultiSwitchEntry>
 								</Local>
 							</Reference>
 							<Reference>
 								<Local>
-									<MusicCue Name="Exit Cue" ID="{7DA5344C-141C-4383-B856-7EC769BCF480}">
-										<PropertyList>
-											<Property Name="CueType" Type="int16" Value="1"/>
-											<Property Name="TimeMs" Type="Real64" Value="80042.325780248"/>
-										</PropertyList>
-									</MusicCue>
+									<MultiSwitchEntry Name="" ID="{279A4160-EADE-405C-AE33-CB9C4EC4E118}">
+										<ReferenceList>
+											<Reference Name="AudioNode">
+												<ObjectRef Name="AfricanDrums1" ID="{DB66109A-3D81-4172-B3C1-12901C97C964}" WorkUnitID="{F8F2F14A-2BCC-4871-B412-1B4F0EC54D20}"/>
+											</Reference>
+										</ReferenceList>
+										<ObjectLists>
+											<ObjectList Name="EntryPath">
+												<Reference>
+													<ObjectRef Name="Below10" ID="{3C7252CE-F5BD-4076-96BF-F0E87E5BFC38}" WorkUnitID="{F5C615EC-85DB-4D07-A5C1-1176CFFA690F}"/>
+												</Reference>
+											</ObjectList>
+										</ObjectLists>
+									</MultiSwitchEntry>
+								</Local>
+							</Reference>
+							<Reference>
+								<Local>
+									<MultiSwitchEntry Name="" ID="{BD32515C-F44C-48B6-BDE6-8D33B238AFB7}">
+										<ReferenceList>
+											<Reference Name="AudioNode">
+												<ObjectRef Name="AfricanDrums2" ID="{3A0C1439-FAEC-4B28-B1ED-DD8F3D4066DC}" WorkUnitID="{F8F2F14A-2BCC-4871-B412-1B4F0EC54D20}"/>
+											</Reference>
+										</ReferenceList>
+										<ObjectLists>
+											<ObjectList Name="EntryPath">
+												<Reference>
+													<ObjectRef Name="Below20" ID="{A14073D7-2D4A-43BB-AC41-252AAAC7EA61}" WorkUnitID="{F5C615EC-85DB-4D07-A5C1-1176CFFA690F}"/>
+												</Reference>
+											</ObjectList>
+										</ObjectLists>
+									</MultiSwitchEntry>
 								</Local>
 							</Reference>
 						</ObjectList>
 					</ObjectLists>
-				</MusicSegment>
+				</MusicSwitchContainer>
 			</ChildrenList>
 		</WorkUnit>
 	</InteractiveMusic>
