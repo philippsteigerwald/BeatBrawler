@@ -56,21 +56,9 @@ public class BufferedMovement : MonoBehaviour
 
 		if (!isMoving && (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.RightArrow)) && arrowKeyCount == 0)
 		{	
-			//if (inputEvaluation.WindowChecker()) // One of the Keys was pressed within one of the frames so the action is allowed / we can do an else here maybe a confusion animation  
-			//{
-				//Debug.Log("We are inside of Window:");
-				//Debug.Log("The Key was pressed at " + WwiseClockSync.currentPositionInSong);
+
 				StartCoroutine(Buffer());
-			//}
-			
-			// else
-			// {
-			// 	return; //Debug.Log("We are outside of a Window");
-				
-			// }
-			
-			
-			//Debug.Log("Input Detected");
+
 			
 		}
 		
@@ -78,9 +66,7 @@ public class BufferedMovement : MonoBehaviour
 					(Input.GetKey(KeyCode.DownArrow) ? 1 : 0) +
 					(Input.GetKey(KeyCode.LeftArrow) ? 1 : 0) +
 					(Input.GetKey(KeyCode.RightArrow) ? 1 : 0);
-					
-		//Debug.Log("Arrow Keycount: " + arrowKeyCount);			
-		//Debug.Log("MovementDuration is " + moveDuration);	
+
 	}		
 	
 	IEnumerator Buffer()
@@ -143,6 +129,7 @@ public class BufferedMovement : MonoBehaviour
 
 					}	
 					
+					//One of the Keys was pressed outside of the timing Window / we can do an else here maybe a confusion animation  
 					else 
 					{
 
@@ -221,7 +208,7 @@ public class BufferedMovement : MonoBehaviour
 		{
 			transform.position = Vector2.Lerp(peakPosition, endPosition, elapsedTime / (moveDuration / 2));
 			
-						// Perform collision detection
+					// Perform collision detection
 			if (!IsPathClear(transform.position, peakPosition))
 			{
 				break;

@@ -53,10 +53,8 @@ public class WwiseClockSync : MonoBehaviour
 
 		//secondsPerBeat = UpdateBPM(mainThemeID); Rather update BPM whenever the RTCP for Pitch is called unless its a flowing movement then it has to be in the update loop
 		//currentPositionInSong = UpdatePositionInSong(mainThemeID);
-		
 		//int songPosInBeats = currentPositionInSong / (int)secondsPerBeat;
-		
-		
+	
 		//Debug.Log("Seconds Per Beat: " + secondsPerBeat);
 		//Debug.Log("BPM: " + 60/secondsPerBeat);
 		//Debug.Log("Seconds Per Beat: " + secondsPerBeat);

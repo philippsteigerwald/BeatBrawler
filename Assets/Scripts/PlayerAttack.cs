@@ -17,7 +17,6 @@ public class PlayerAttack : MonoBehaviour
 	public int damage = 1;
 	
 
-	// Update is called once per frame
 	void Update()
 	{
 		if(timeBtwAttack <= 0)
