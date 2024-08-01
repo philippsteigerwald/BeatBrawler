@@ -9,6 +9,82 @@
 							<ObjectRef Name="System" ID="{3CE9F91F-A48F-4762-9F22-10099DCAF6BD}" WorkUnitID="{5FED3DC9-92BE-4FE8-9142-8AB557D2373A}"/>
 						</Reference>
 					</ReferenceList>
+					<ChildrenList>
+						<Bus Name="EnvironmentBus" ID="{DC99F0FE-3465-4233-A123-AF00A2E6AF57}">
+							<PropertyList>
+								<Property Name="RecoveryTime" Type="Real64" Value="0.1"/>
+							</PropertyList>
+							<ObjectLists>
+								<ObjectList Name="RTPC">
+									<Reference>
+										<Local>
+											<RTPC Name="" ID="{59D1692B-DA39-45A8-B1B9-416666C06361}" ShortID="334128160">
+												<PropertyList>
+													<Property Name="PropertyName" Type="string" Value="Highpass"/>
+												</PropertyList>
+												<ReferenceList>
+													<Reference Name="ControlInput">
+														<ObjectRef Name="PlayerInput" ID="{6A31892D-0AAA-40FE-9B92-3CBFF8A4E317}" WorkUnitID="{913474A5-3AC6-4130-8EFE-67E0AC58019F}"/>
+													</Reference>
+													<Reference Name="Curve">
+														<Custom>
+															<Curve Name="" ID="{0EFD5D92-A852-4D04-B69B-B3BB383A0FF1}">
+																<PropertyList>
+																	<Property Name="Flags" Type="int32" Value="65537"/>
+																</PropertyList>
+																<PointList>
+																	<Point>
+																		<XPos>-48</XPos>
+																		<YPos>0</YPos>
+																		<Flags>5</Flags>
+																		<SegmentShape>Exp1</SegmentShape>
+																	</Point>
+																	<Point>
+																		<XPos>-8.38453</XPos>
+																		<YPos>5</YPos>
+																		<Flags>0</Flags>
+																		<SegmentShape>Exp1</SegmentShape>
+																	</Point>
+																	<Point>
+																		<XPos>-1.29426</XPos>
+																		<YPos>13</YPos>
+																		<Flags>0</Flags>
+																		<SegmentShape>Exp1</SegmentShape>
+																	</Point>
+																	<Point>
+																		<XPos>0</XPos>
+																		<YPos>35</YPos>
+																		<Flags>37</Flags>
+																	</Point>
+																</PointList>
+															</Curve>
+														</Custom>
+													</Reference>
+												</ReferenceList>
+											</RTPC>
+										</Local>
+									</Reference>
+								</ObjectList>
+							</ObjectLists>
+						</Bus>
+						<Bus Name="PlayerInput" ID="{99BF22BD-3414-4AFB-9375-CDE9424AA266}">
+							<ObjectLists>
+								<ObjectList Name="Effects">
+									<Reference>
+										<Local>
+											<EffectSlot Name="" ID="{8EF3017F-D6C6-4A79-B2EE-86AB696556CF}" ShortID="1057693400">
+												<ReferenceList>
+													<Reference Name="Effect" PluginName="Wwise Meter" CompanyID="0" PluginID="129" PluginType="3">
+														<ObjectRef Name="Sidechain_meter" ID="{2B05F4B3-1861-44F3-96F5-E35FEDB58407}" WorkUnitID="{5DC9F1AD-39CA-4F3E-90FD-134B2D9D162A}"/>
+													</Reference>
+												</ReferenceList>
+											</EffectSlot>
+										</Local>
+									</Reference>
+								</ObjectList>
+							</ObjectLists>
+						</Bus>
+					</ChildrenList>
 				</Bus>
 			</ChildrenList>
 		</WorkUnit>

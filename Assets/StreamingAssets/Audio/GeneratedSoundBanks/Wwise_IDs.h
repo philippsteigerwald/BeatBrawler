@@ -39,7 +39,7 @@ namespace AK
     namespace GAME_PARAMETERS
     {
         static const AkUniqueID COMBOSCORE = 2848454361U;
-        static const AkUniqueID MAINTHEMEDUCKING = 3579854146U;
+        static const AkUniqueID PLAYERINPUT = 2586500214U;
         static const AkUniqueID WINDOWLFOHIT = 1720865373U;
     } // namespace GAME_PARAMETERS
 
@@ -51,7 +51,9 @@ namespace AK
 
     namespace BUSSES
     {
+        static const AkUniqueID ENVIRONMENTBUS = 221867874U;
         static const AkUniqueID MASTER_AUDIO_BUS = 3803692087U;
+        static const AkUniqueID PLAYERINPUT = 2586500214U;
     } // namespace BUSSES
 
     namespace AUDIO_DEVICES

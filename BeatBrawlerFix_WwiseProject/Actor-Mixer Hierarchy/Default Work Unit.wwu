@@ -135,7 +135,7 @@
 							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{DB653612-C39E-4CBA-9B4D-17106A38E044}"/>
 						</Reference>
 						<Reference Name="OutputBus">
-							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{D1DAB2D7-DB1D-4B38-A3D6-069A043E616A}"/>
+							<ObjectRef Name="PlayerInput" ID="{99BF22BD-3414-4AFB-9375-CDE9424AA266}" WorkUnitID="{D1DAB2D7-DB1D-4B38-A3D6-069A043E616A}"/>
 						</Reference>
 					</ReferenceList>
 					<ChildrenList>
@@ -149,11 +149,16 @@
 								</Reference>
 							</ReferenceList>
 							<ChildrenList>
-								<AudioFileSource Name="Kick13" ID="{35CA72FE-009A-40F0-9048-77C7748B99C1}">
+								<AudioFileSource Name="InputDrum" ID="{8BB8B77A-6794-449D-8D6F-9EC4BBD6801C}">
+									<PropertyList>
+										<Property Name="LoopBegin" Type="Real64" Value="0"/>
+										<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+										<Property Name="TrimEnd" Type="Real64" Value="0.792838874680316"/>
+									</PropertyList>
 									<Language>SFX</Language>
-									<AudioFile>Kick13.wav</AudioFile>
+									<AudioFile>InputDrum.wav</AudioFile>
 									<MediaIDList>
-										<MediaID ID="972989376"/>
+										<MediaID ID="712558056"/>
 									</MediaIDList>
 								</AudioFileSource>
 							</ChildrenList>
@@ -182,13 +187,13 @@
 																		<Flags>5</Flags>
 																	</Point>
 																	<Point>
-																		<XPos>1.41398</XPos>
-																		<YPos>47</YPos>
+																		<XPos>1.41574</XPos>
+																		<YPos>46</YPos>
 																		<Flags>0</Flags>
 																	</Point>
 																	<Point>
 																		<XPos>4</XPos>
-																		<YPos>7</YPos>
+																		<YPos>28</YPos>
 																		<Flags>37</Flags>
 																	</Point>
 																</PointList>
@@ -202,7 +207,7 @@
 								</ObjectList>
 							</ObjectLists>
 							<ActiveSourceList>
-								<ActiveSource Name="Kick13" ID="{35CA72FE-009A-40F0-9048-77C7748B99C1}" Platform="Linked"/>
+								<ActiveSource Name="InputDrum" ID="{8BB8B77A-6794-449D-8D6F-9EC4BBD6801C}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="PlayerMissedInput" ID="{BC719B61-F77C-477A-BF4C-88DC369D0FA6}" ShortID="479042815">
@@ -215,6 +220,11 @@
 								<Property Name="Pitch" Type="int32">
 									<ValueList>
 										<Value>-1240</Value>
+									</ValueList>
+								</Property>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-1</Value>
 									</ValueList>
 								</Property>
 							</PropertyList>

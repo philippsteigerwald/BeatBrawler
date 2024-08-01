@@ -11,7 +11,13 @@
 						<Property Name="Min" Type="Real64" Value="1"/>
 					</PropertyList>
 				</GameParameter>
-				<GameParameter Name="MainThemeDucking" ID="{6A31892D-0AAA-40FE-9B92-3CBFF8A4E317}"/>
+				<GameParameter Name="PlayerInput" ID="{6A31892D-0AAA-40FE-9B92-3CBFF8A4E317}">
+					<PropertyList>
+						<Property Name="InitialValue" Type="Real64" Value="-48"/>
+						<Property Name="Max" Type="Real64" Value="0"/>
+						<Property Name="Min" Type="Real64" Value="-48"/>
+					</PropertyList>
+				</GameParameter>
 			</ChildrenList>
 		</WorkUnit>
 	</GameParameters>

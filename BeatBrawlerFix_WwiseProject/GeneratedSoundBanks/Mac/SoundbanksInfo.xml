@@ -9,22 +9,33 @@
 	</RootPaths>
 	<DialogueEvents/>
 	<SoundBanks>
-		<SoundBank Id="1355168291" Type="User" Language="SFX" Hash="{B4171227-19DC-0B48-34C4-6761F8AC1C7B}">
+		<SoundBank Id="1355168291" Type="User" Language="SFX" Hash="{BD56573B-0D01-4227-F818-150411B7106A}">
 			<ShortName>Init</ShortName>
 			<Path>Init.bnk</Path>
 			<Plugins>
+				<ShareSets>
+					<Plugin Id="1992114213" Name="Sidechain_meter" LibName="Wwise Meter" LibId="8454147"/>
+				</ShareSets>
 				<AudioDevices>
 					<Plugin Id="2317455096" Name="No_Output" LibName="No Output" LibId="11862023"/>
 					<Plugin Id="3859886410" Name="System" LibName="System" LibId="11403271"/>
 				</AudioDevices>
 			</Plugins>
 			<Busses>
+				<Bus Id="221867874" Name="EnvironmentBus"/>
+				<Bus Id="2586500214" Name="PlayerInput">
+					<PluginRefs>
+						<ShareSets>
+							<PluginRef Id="1992114213"/>
+						</ShareSets>
+					</PluginRefs>
+				</Bus>
 				<Bus Id="3803692087" Name="Master Audio Bus"/>
 			</Busses>
 			<GameParameters>
 				<GameParameter Id="1720865373" Name="WindowLFOHit"/>
+				<GameParameter Id="2586500214" Name="PlayerInput"/>
 				<GameParameter Id="2848454361" Name="ComboScore"/>
-				<GameParameter Id="3579854146" Name="MainThemeDucking"/>
 			</GameParameters>
 			<StateGroups>
 				<StateGroup Id="824317709" Name="MainTheme">
@@ -37,7 +48,7 @@
 				</StateGroup>
 			</StateGroups>
 		</SoundBank>
-		<SoundBank Id="1661994096" Type="User" Language="SFX" Hash="{9E2872BB-188F-DAE5-C978-F9A0AE3C9B6D}">
+		<SoundBank Id="1661994096" Type="User" Language="SFX" Hash="{299A9F88-6079-1017-6DA2-7103404E82D4}">
 			<ShortName>Soundbank</ShortName>
 			<Path>Soundbank.bnk</Path>
 			<Media>
@@ -61,6 +72,10 @@
 					<ShortName>AfricanDrums 1-Drum Rack.wav</ShortName>
 					<CachePath>SFX/AfricanDrums 1-Drum Rack_818F3B66.wem</CachePath>
 				</File>
+				<File Id="712558056" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>InputDrum.wav</ShortName>
+					<CachePath>SFX/InputDrum_2938B78A.wem</CachePath>
+				</File>
 				<File Id="713891372" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>AfricanDrums 3-Drum Rack.wav</ShortName>
 					<CachePath>SFX/AfricanDrums 3-Drum Rack_818F3B66.wem</CachePath>
@@ -68,10 +83,6 @@
 				<File Id="744447504" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>AfricanDrums2.wav</ShortName>
 					<CachePath>SFX/AfricanDrums2_818F3B66.wem</CachePath>
-				</File>
-				<File Id="972989376" Language="SFX" Streaming="false" Location="Memory">
-					<ShortName>Kick13.wav</ShortName>
-					<CachePath>SFX/Kick13_818F3B66.wem</CachePath>
 				</File>
 			</Media>
 			<Events>
@@ -109,9 +120,9 @@
 						<MediaRef Id="108909347"/>
 					</MediaRefs>
 				</Event>
-				<Event Id="2807642670" Name="Play_PlayerMoveInput" DurationType="OneShot" DurationMin="0.08857143" DurationMax="0.08857143">
+				<Event Id="2807642670" Name="Play_PlayerMoveInput" DurationType="OneShot" DurationMin="0.7928389" DurationMax="0.7928389">
 					<MediaRefs>
-						<MediaRef Id="972989376"/>
+						<MediaRef Id="712558056"/>
 					</MediaRefs>
 				</Event>
 			</Events>
@@ -131,5 +142,5 @@
 			</StateGroups>
 		</SoundBank>
 	</SoundBanks>
-	<FileHash>{9E52C197-3D58-00CD-4203-9B1409DF1432}</FileHash>
+	<FileHash>{D9C86A54-012C-2B89-2DDE-78F92E1C121D}</FileHash>
 </SoundBanksInfo>
