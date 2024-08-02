@@ -134,6 +134,7 @@ public class InputEvaluation : MonoBehaviour
 	public void UpdateAccordingToWindow()
 	{
 		interfaceController.ComboCounterUpdate(ParameterController.windowStatus);
+		interfaceController.WindowUpdaterText(ParameterController.windowStatus);
 		float punchScaleX; 
 		float punchScaleY; 
 		
