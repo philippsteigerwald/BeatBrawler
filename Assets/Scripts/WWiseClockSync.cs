@@ -12,8 +12,12 @@ public class WwiseClockSync : MonoBehaviour
 	[HideInInspector] public static float secondsPerBeat;
 	[HideInInspector] public static int currentPositionInSong;
 	
+	[HideInInspector] public static bool windowUpdateDone = false;
+	
 	public InputEvaluation inputEvaluation;
 	public ParameterController parameterController;
+	
+	public BufferedMovement bufferedMovement;
 
 	public UnityEvent OnCustomCueY;
 
@@ -45,7 +49,10 @@ public class WwiseClockSync : MonoBehaviour
 		
 		StartMusic();
 		
+		parameterController.UpdateWindow();
+		
 		//Debug.Log("seconds per beats are: " + UpdateBPM(mainThemeID));	
+		//secondsPerBeat = UpdateBPM(mainThemeID);
 		
 	}
 
@@ -128,7 +135,16 @@ public class WwiseClockSync : MonoBehaviour
 					
 				case AkCallbackType.AK_MusicSyncBeat:
 				
-					parameterController.UpdateWindowTiming();
+					
+					
+					
+					//bufferedMovement.MovementPicker();
+					parameterController.UpdateWindow();
+					WindowUpdateUpdater();
+					StartCoroutine(Buffer());
+					
+					
+					
 					
 					
 
@@ -207,7 +223,7 @@ public class WwiseClockSync : MonoBehaviour
 				
 				//StartCoroutine(inputEvaluation.InputBuffer());
 				
-				parameterController.UpdateWindowTiming();
+				//parameterController.UpdateWindowTiming();
 				
 				break;
 
@@ -272,10 +288,10 @@ public class WwiseClockSync : MonoBehaviour
 	{
 		AkSegmentInfo segmentInfo = new AkSegmentInfo();
 		AkSoundEngine.GetPlayingSegmentInfo(trackID, segmentInfo, true);
-		secondsPerBeat = segmentInfo.fBeatDuration;
+		float secondsPerBeatInMethod = segmentInfo.fBeatDuration;
 		//secondsPerBeat = Mathf.RoundToInt(secondsPerBeat);
 
-		return secondsPerBeat;
+		return secondsPerBeatInMethod;
 	}
 	
 	
@@ -284,9 +300,21 @@ public class WwiseClockSync : MonoBehaviour
 		
 		AkSegmentInfo segmentInfo = new AkSegmentInfo();
 		AkSoundEngine.GetPlayingSegmentInfo(trackID, segmentInfo, true);
-		currentPositionInSong = segmentInfo.iCurrentPosition;
+		int currentPositionInSongInMethod = segmentInfo.iCurrentPosition;
 		
-		return currentPositionInSong;
+		return currentPositionInSongInMethod;
+	}
+	
+		IEnumerator Buffer()
+	{
+		yield return new WaitForSeconds(UpdateBPM(mainThemeID) / 2 ); // restes the toggle after half a beat and is therefore outside of every window 
+		WindowUpdateUpdater();
+	}	
+	
+	private void WindowUpdateUpdater()
+	{
+		windowUpdateDone = !windowUpdateDone;
+		Debug.Log("Windows has been Updated");
 	}
 	
 

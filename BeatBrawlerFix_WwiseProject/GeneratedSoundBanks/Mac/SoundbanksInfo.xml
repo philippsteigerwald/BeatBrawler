@@ -9,7 +9,7 @@
 	</RootPaths>
 	<DialogueEvents/>
 	<SoundBanks>
-		<SoundBank Id="1355168291" Type="User" Language="SFX" Hash="{BD56573B-0D01-4227-F818-150411B7106A}">
+		<SoundBank Id="1355168291" Type="User" Language="SFX" Hash="{92D4540B-B418-AA8D-2D0A-97289EB50C1D}">
 			<ShortName>Init</ShortName>
 			<Path>Init.bnk</Path>
 			<Plugins>
@@ -48,7 +48,7 @@
 				</StateGroup>
 			</StateGroups>
 		</SoundBank>
-		<SoundBank Id="1661994096" Type="User" Language="SFX" Hash="{299A9F88-6079-1017-6DA2-7103404E82D4}">
+		<SoundBank Id="1661994096" Type="User" Language="SFX" Hash="{C9DABB50-6414-73A2-32AB-C24E3A3B5236}">
 			<ShortName>Soundbank</ShortName>
 			<Path>Soundbank.bnk</Path>
 			<Media>
@@ -74,7 +74,7 @@
 				</File>
 				<File Id="712558056" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>InputDrum.wav</ShortName>
-					<CachePath>SFX/InputDrum_2938B78A.wem</CachePath>
+					<CachePath>SFX/InputDrum_406747C3.wem</CachePath>
 				</File>
 				<File Id="713891372" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>AfricanDrums 3-Drum Rack.wav</ShortName>
@@ -142,5 +142,5 @@
 			</StateGroups>
 		</SoundBank>
 	</SoundBanks>
-	<FileHash>{D9C86A54-012C-2B89-2DDE-78F92E1C121D}</FileHash>
+	<FileHash>{155DD4ED-9378-A251-AB0E-C64D845E1A8E}</FileHash>
 </SoundBanksInfo>

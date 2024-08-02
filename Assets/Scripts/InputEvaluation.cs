@@ -38,30 +38,44 @@ public class InputEvaluation : MonoBehaviour
 	void Start()
 	{
 		this.gameObject.AddComponent<AkGameObj>(); // we need this to be able to post events 
+		
+		
 	}
 
 	// Update is called once per frame
 	void Update()
 	{
-
+		//Debug.Log("Seconds per Beat: " + wwiseClockSync.UpdateBPM(wwiseClockSync.mainThemeID));
 	}
 	
 
 
 	
 	
-	// is called when ever the player does a moveinput and checks whether the move should register and sets the type of window we hit
+	// is called when ever the player does a moveinput and checks whether the move should register depending on the type of window we hit
 	public bool WindowChecker()	
 	{
 
 		//float secondsPerBeat = wwiseClockSync.UpdateBPM(wwiseClockSync.mainThemeID);
-		//Debug.Log("okWindowStart :" + okWindowTimeStart);
-		//Debug.Log("SongPosition On Buttonpress :" + currentPositionInSong);
-		//Debug.Log("okWindowEnd :" + okWindowTimeEnd);
 		
+		float currentPositionInSong = wwiseClockSync.UpdatePositionInSong(wwiseClockSync.mainThemeID); 
+
+		if (!WwiseClockSync.windowUpdateDone) // if this is true the inputs was earlier then the beat and the inputs are therefore checked before the queue update is activated. 
+																				// current position is 1690 while Queue is (1800/1700) and cached position is 1600 as opposed to 1710 when Queue is (1900/1800) and cached is 1700
+			{
+				currentPositionInSong = currentPositionInSong - wwiseClockSync.UpdateBPM(wwiseClockSync.mainThemeID) * 1000; // parameterController.cachedPositionInSong - wwiseClockSync.UpdateBPM(wwiseClockSync.mainThemeID) * 1000;	// this is why we have reduce the currentposition w
+				Debug.Log("WindowUpdate wasnt done and its currentposition is reduced by 1000");
+			}
+			
+			
+		//currentPositionInSong = parameterController.cachedPositionInSong;	
 				
-		float currentPositionInSong = wwiseClockSync.UpdatePositionInSong(wwiseClockSync.mainThemeID); // fetch current Position in Song as Callback from mainTheme
+		// fetch current Position in Song as Callback from mainTheme
 		//float secondsPerBeat = wwiseClockSync.UpdateBPM(wwiseClockSync.mainThemeID);
+		
+		Debug.Log("okWindowStart :" + parameterController.okWindowTimeStart);
+		Debug.Log("SongPosition On Buttonpress :" + currentPositionInSong);
+		Debug.Log("okWindowEnd :" + parameterController.okWindowTimeEnd);
 
 		if (IsValueInRange(currentPositionInSong, parameterController.perfectWindowTimeStart, parameterController.perfectWindowTimeEnd))
 		{	

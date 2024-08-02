@@ -56,7 +56,9 @@ public Queue<float> CacheTimingQueue = new Queue<float>();
 			AkSoundEngine.SetRTPCValue("PitchController",playbackSpeed);
 		}
 		
-		BufferedMovement.moveDuration = WwiseClockSync.secondsPerBeat - BufferedMovement.movementDurationDecrease; // use this whenever BPM is updated 
+		BufferedMovement.moveDuration = WwiseClockSync.secondsPerBeat - BufferedMovement.movementDurationDecrease; // use this whenever BPM is updated // assumes that WwiseCLockSync permanently updates its bpm, maybe its better to manually update it here
+		
+		
 		//WwiseClockSync.updateBPM();
 		//Debug.Log("playbackspeed = " + playbackSpeed);
 		
@@ -80,23 +82,34 @@ public Queue<float> CacheTimingQueue = new Queue<float>();
 	
 	// This function is called on every beat or cue and caches the window for the next beat in secondsPerBeat + 1000. The values we store here are checked against the InputTimings in WindowChecker()
 	// we need to substract okTime which is the time we waited in the Buffer to store the next value, so its fits again. 
-	public void UpdateWindowTiming()
+	public void UpdateWindow()
 	{
-		CacheTimingQueue.Enqueue(wwiseClockSync.UpdatePositionInSong(wwiseClockSync.mainThemeID));
-					
-		if (CacheTimingQueue.Count > 1) // dont do it on the first beat // need to mute the song in the beginning and then start it on button press so we already have information stored on the beginning
+		if (CacheTimingQueue.Count == 0)
 		{
-			cachedPositionInSong = CacheTimingQueue.Dequeue();
+			CacheTimingQueue.Enqueue(wwiseClockSync.UpdatePositionInSong(wwiseClockSync.mainThemeID)); // writes a 0 to the queue
 		}
+		CacheTimingQueue.Enqueue(wwiseClockSync.UpdatePositionInSong(wwiseClockSync.mainThemeID) + wwiseClockSync.UpdateBPM(wwiseClockSync.mainThemeID) * 1000); 
+		Debug.Log("This Value is added to the Queue: " + (wwiseClockSync.UpdatePositionInSong(wwiseClockSync.mainThemeID) + wwiseClockSync.UpdateBPM(wwiseClockSync.mainThemeID) * 1000));
+		cachedPositionInSong = CacheTimingQueue.Dequeue();
+		Debug.Log("This Value is removed from the Queue: " + cachedPositionInSong);
+		 
 					
-		secondsPerBeat = wwiseClockSync.UpdateBPM(wwiseClockSync.mainThemeID);
+					
+		// secondsPerBeat = wwiseClockSync.UpdateBPM(wwiseClockSync.mainThemeID);
 		
-		okWindowTimeStart = cachedPositionInSong + secondsPerBeat * 1000 - okTime;
-		okWindowTimeEnd = cachedPositionInSong +  secondsPerBeat * 1000 + okTime;
-		goodWindowTimeStart = cachedPositionInSong + secondsPerBeat * 1000 - goodTime;
-		goodWindowTimeEnd = cachedPositionInSong +  secondsPerBeat * 1000 + goodTime ;
-		perfectWindowTimeStart = cachedPositionInSong + secondsPerBeat * 1000 - perfectTime;
-		perfectWindowTimeEnd = cachedPositionInSong +  secondsPerBeat * 1000 + perfectTime;		
+		// okWindowTimeStart = cachedPositionInSong + secondsPerBeat * 1000 - okTime;
+		// okWindowTimeEnd = cachedPositionInSong +  secondsPerBeat * 1000 + okTime;
+		// goodWindowTimeStart = cachedPositionInSong + secondsPerBeat * 1000 - goodTime;
+		// goodWindowTimeEnd = cachedPositionInSong +  secondsPerBeat * 1000 + goodTime ;
+		// perfectWindowTimeStart = cachedPositionInSong + secondsPerBeat * 1000 - perfectTime;
+		// perfectWindowTimeEnd = cachedPositionInSong +  secondsPerBeat * 1000 + perfectTime;		
+
+		okWindowTimeStart = cachedPositionInSong  - okTime;
+		okWindowTimeEnd = cachedPositionInSong  + okTime;
+		goodWindowTimeStart = cachedPositionInSong - goodTime;
+		goodWindowTimeEnd = cachedPositionInSong  + goodTime ;
+		perfectWindowTimeStart = cachedPositionInSong  - perfectTime;
+		perfectWindowTimeEnd = cachedPositionInSong  + perfectTime;		
 	}
 	
 

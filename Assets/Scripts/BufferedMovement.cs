@@ -53,6 +53,7 @@ public class BufferedMovement : MonoBehaviour
 
 	void Update()
 	{
+		
 
 		if (!isMoving && (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.RightArrow)) && arrowKeyCount == 0)
 		{	
@@ -76,7 +77,7 @@ public class BufferedMovement : MonoBehaviour
 	}	
 	
 	
-	private void MovementPicker()
+	public void MovementPicker()
 	{				
 		
 					Vector2 direction = Vector2.zero;

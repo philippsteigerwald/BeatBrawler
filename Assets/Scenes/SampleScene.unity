@@ -239,6 +239,7 @@ MonoBehaviour:
     WwiseObjectReference: {fileID: 11400000, guid: 44d273e08beb4476db8a85892c9bd1c0, type: 2}
   inputEvaluation: {fileID: 650048463}
   parameterController: {fileID: 1311942967}
+  bufferedMovement: {fileID: 650048461}
   OnCustomCueY:
     m_PersistentCalls:
       m_Calls: []
@@ -599,7 +600,7 @@ Transform:
   m_GameObject: {fileID: 619967532}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 7.72, y: 1.52, z: -0.08101403}
+  m_LocalPosition: {x: 7.38, y: 1.33, z: -0.08101403}
   m_LocalScale: {x: 2.2535372, y: 2.296173, z: 1.87}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -974,7 +975,7 @@ Transform:
   m_GameObject: {fileID: 650048450}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.26, y: 1.64, z: 0}
+  m_LocalPosition: {x: -6.3, y: 1.56, z: 0}
   m_LocalScale: {x: 2.89, y: 2.89, z: 2.89}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -1510,9 +1511,9 @@ MonoBehaviour:
   okWindowTimeEnd: 0
   goodWindowTimeEnd: 0
   perfectWindowTimeEnd: 0
-  okTime: 30
-  goodTime: 80
-  perfectTime: 120
+  okTime: 150
+  goodTime: 75
+  perfectTime: 30
   cachedPositionInSong: 0
 --- !u!4 &1311942968
 Transform:
