@@ -1082,8 +1082,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df7c3cc9d19f543bfa79da3d8493d700, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveDistance: 1
-  jumpHeight: 2
+  moveDistance: 1.5
+  jumpHeight: 2.5
   inputBufferTime: 0.03
   movementDurationDecrease: 0.6
   moveDuration: 0.2

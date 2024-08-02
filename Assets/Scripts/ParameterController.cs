@@ -56,7 +56,7 @@ public Queue<float> CacheTimingQueue = new Queue<float>();
 			AkSoundEngine.SetRTPCValue("PitchController",playbackSpeed);
 		}
 		
-		BufferedMovement.moveDuration = WwiseClockSync.secondsPerBeat - BufferedMovement.movementDurationDecrease; // use this whenever BPM is updated // assumes that WwiseCLockSync permanently updates its bpm, maybe its better to manually update it here
+		BufferedMovement.moveDuration = wwiseClockSync.UpdateBPM(wwiseClockSync.mainThemeID) - BufferedMovement.movementDurationDecrease; // use this whenever BPM is updated // assumes that WwiseCLockSync permanently updates its bpm, maybe its better to manually update it here
 		
 		
 		//WwiseClockSync.updateBPM();
