@@ -201,6 +201,7 @@ Transform:
   - {fileID: 1581863631}
   - {fileID: 308165298}
   - {fileID: 1507565334}
+  - {fileID: 1673761105}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &308165296
@@ -237,6 +238,7 @@ MonoBehaviour:
     valueGuidInternal: 
     WwiseObjectReference: {fileID: 11400000, guid: 44d273e08beb4476db8a85892c9bd1c0, type: 2}
   inputEvaluation: {fileID: 650048463}
+  parameterController: {fileID: 1311942967}
   OnCustomCueY:
     m_PersistentCalls:
       m_Calls: []
@@ -1099,23 +1101,13 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 650048450}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f5bfaa44915b544f6992a9832c70248f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  okTime: 100
-  goodTime: 60
-  perfectTime: 30
-  currentPositionInSong: 0
-  secondsPerBeat: 0
-  okWindowTimeStart: 0
-  goodWindowTimeStart: 0
-  perfectWindowTimeStart: 0
-  okWindowTimeEnd: 0
-  goodWindowTimeEnd: 0
-  perfectWindowTimeEnd: 0
   wwiseClockSync: {fileID: 308165297}
+  parameterController: {fileID: 1311942967}
   bufferedMovement: {fileID: 650048461}
   goodParticles: {fileID: 0}
   badParticles: {fileID: 0}
@@ -1510,6 +1502,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   BufferedMovement: {fileID: 650048461}
+  wwiseClockSync: {fileID: 308165297}
+  secondsPerBeat: 0
+  okWindowTimeStart: 0
+  goodWindowTimeStart: 0
+  perfectWindowTimeStart: 0
+  okWindowTimeEnd: 0
+  goodWindowTimeEnd: 0
+  perfectWindowTimeEnd: 0
+  okTime: 30
+  goodTime: 80
+  perfectTime: 120
+  cachedPositionInSong: 0
 --- !u!4 &1311942968
 Transform:
   m_ObjectHideFlags: 0
@@ -2051,6 +2055,60 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   punchScaleX: 0.5
   punchScaleY: 0.3
+--- !u!1 &1673761104
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1673761105}
+  - component: {fileID: 1673761106}
+  m_Layer: 0
+  m_Name: InputHandler
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1673761105
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1673761104}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 133570679}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1673761106
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1673761104}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f5bfaa44915b544f6992a9832c70248f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  wwiseClockSync: {fileID: 308165297}
+  parameterController: {fileID: 1311942967}
+  bufferedMovement: {fileID: 650048461}
+  goodParticles: {fileID: 0}
+  badParticles: {fileID: 0}
+  interfaceController: {fileID: 15731352}
+  perfectColor: {r: 0, g: 0, b: 0, a: 0}
+  goodColor: {r: 0, g: 0, b: 0, a: 0}
+  okColor: {r: 0, g: 0, b: 0, a: 0}
+  missedColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!1 &1681529810
 GameObject:
   m_ObjectHideFlags: 0

@@ -8,31 +8,20 @@ using DG.Tweening;
 
 using UnityEngine.UIElements;
 
+
+
+
 public class InputEvaluation : MonoBehaviour
 {
 	
-	public float okTime;
-	public float goodTime;
-	public float perfectTime;	
+
+	[HideInInspector] private int windowTiming;
 	
 
 	
-	[HideInInspector] public float currentPositionInSong;
-	[HideInInspector] public float secondsPerBeat;
-	
-	[HideInInspector] public float okWindowTimeStart;
-	[HideInInspector] public float goodWindowTimeStart;
-	[HideInInspector] public float perfectWindowTimeStart;
-	
-	[HideInInspector] public float okWindowTimeEnd;
-	[HideInInspector] public float goodWindowTimeEnd;
-	[HideInInspector] public float perfectWindowTimeEnd;
-	
-	[HideInInspector] private int windowTiming;
-	
-	
-	
 	public WwiseClockSync wwiseClockSync;
+	
+	public ParameterController parameterController;
 	public BufferedMovement bufferedMovement;
 	
 	
@@ -54,90 +43,85 @@ public class InputEvaluation : MonoBehaviour
 	// Update is called once per frame
 	void Update()
 	{
-		if (Input.anyKeyDown)
-		{
-			
-		}
-	}
-	
-	
-	public void startInputTimer()
-	
-	{
-
-		StartCoroutine(Buffer());
-		
 
 	}
 	
+
+
 	
 	
-	
+	// is called when ever the player does a moveinput and checks whether the move should register and sets the type of window we hit
 	public bool WindowChecker()	
 	{
-		
-		
-		//float currentPositionInSong = wwiseClockSync.UpdatePositionInSong(wwiseClockSync.mainThemeID);
-		// float secondsPerBeat = wwiseClockSync.UpdateBPM(wwiseClockSync.mainThemeID);
-		
-		currentPositionInSong = wwiseClockSync.UpdatePositionInSong(wwiseClockSync.mainThemeID);
-		
+
+		//float secondsPerBeat = wwiseClockSync.UpdateBPM(wwiseClockSync.mainThemeID);
 		//Debug.Log("okWindowStart :" + okWindowTimeStart);
 		//Debug.Log("SongPosition On Buttonpress :" + currentPositionInSong);
 		//Debug.Log("okWindowEnd :" + okWindowTimeEnd);
 		
+				
+		float currentPositionInSong = wwiseClockSync.UpdatePositionInSong(wwiseClockSync.mainThemeID); // fetch current Position in Song as Callback from mainTheme
+		//float secondsPerBeat = wwiseClockSync.UpdateBPM(wwiseClockSync.mainThemeID);
 
-		
-		if (IsValueInRange(currentPositionInSong, perfectWindowTimeStart, perfectWindowTimeEnd))
+		if (IsValueInRange(currentPositionInSong, parameterController.perfectWindowTimeStart, parameterController.perfectWindowTimeEnd))
 		{	
-
 			ParameterController.windowStatus = 4; 
 			Debug.Log("Value is within the PERFECT Window!");
 			return true;
-			
-			// Make a sound that fits the track and ducks the maintheme/ the btter the timing the better the filter curve
-			// give it some particles
-			// make the combo score go up 3 
-			// make character bump
-			// bring additional heat after some score --> more drums
-			
-			
-			
 		}
 		
-		else if (IsValueInRange(currentPositionInSong, goodWindowTimeStart, goodWindowTimeEnd))
+		else if (IsValueInRange(currentPositionInSong, parameterController.goodWindowTimeStart, parameterController.goodWindowTimeEnd))
 		{
 			Debug.Log("Value is within the GOOD Window!");
 			ParameterController.windowStatus = 3; 
 			return true;
 		}
 		
-		else if (IsValueInRange(currentPositionInSong, okWindowTimeStart, okWindowTimeEnd))
+		else if (IsValueInRange(currentPositionInSong, parameterController.okWindowTimeStart, parameterController.okWindowTimeEnd))
 		{
 			Debug.Log("Value is within the OK Window!");
 			ParameterController.windowStatus = 2; 
 			return true;
 		}
 		
-		else 
-		
+		else 	// The input was not inside a Window in which we register moves
 		{
 			Debug.Log("Value is OUTSIDE the any Window!");
 			ParameterController.windowStatus = 1; 
 			return false;
-			
 		} 
 	}
 	
+	//public void CalculateTimingWindow() 
+	//{
+		// currentPositionInSong = wwiseClockSync.UpdatePositionInSong(wwiseClockSync.mainThemeID) - okTime - bufferedMovement.inputBufferTime;
+		// secondsPerBeat = wwiseClockSync.UpdateBPM(wwiseClockSync.mainThemeID);
+		
+		// okWindowTimeStart = currentPositionInSong + secondsPerBeat * 1000 - okTime;
+		// okWindowTimeEnd = currentPositionInSong +  secondsPerBeat * 1000 + okTime;
+		// goodWindowTimeStart = currentPositionInSong + secondsPerBeat * 1000 - goodTime;
+		// goodWindowTimeEnd = currentPositionInSong +  secondsPerBeat * 1000 + goodTime ;
+		// perfectWindowTimeStart = currentPositionInSong + secondsPerBeat * 1000 - perfectTime;
+		// perfectWindowTimeEnd = currentPositionInSong +  secondsPerBeat * 1000 + perfectTime;
+		
+		//currentPositionInSong = wwiseClockSync.UpdatePositionInSong(wwiseClockSync.mainThemeID);
+	//}
+	
+	// public IEnumerator InputBuffer()
+	// {
+	// 	float waitTime = okTime / 1000; // okTime is the longest window time and we have currentPosition stored exactly one bar before we need to track in runtime but we only print it to the window value once then prior value is obsolete
+	// 	yield return new WaitForSeconds(waitTime); // The window for the next Input only gets updated after the input is already to late anyway 
+	// 	CacheTimingWindow();
+	// 	//Debug.Log("I enter buffer now Buffer");
+	// }	
+	
+	
+	// This Function is ment for SFX and VFX depedning on the window we hit
 	public void UpdateAccordingToWindow()
 	{
-		
-		//Debug.Log("I am called");
-		
 		interfaceController.ComboCounterUpdate(ParameterController.windowStatus);
-		float punchScaleX; // = windowStatus / 2 
-		float punchScaleY; // = windowStatus / 2 
-		//PunchAnimation(windowStatus / 2, windowStatus / 2);
+		float punchScaleX; 
+		float punchScaleY; 
 		
 		if (ParameterController.windowStatus > 1) 
 		{
@@ -146,12 +130,10 @@ public class InputEvaluation : MonoBehaviour
 			
 			if (ParameterController.windowStatus == 2)
 			{
-
 				punchScaleX = ParameterController.windowStatus / 2; 
 				punchScaleY = 1; 
 				PunchAnimation(punchScaleX, punchScaleY);
-				
-			
+
 			}
 			
 			else if (ParameterController.windowStatus == 3)
@@ -159,18 +141,13 @@ public class InputEvaluation : MonoBehaviour
 				punchScaleX = 1; 
 				punchScaleY = ParameterController.windowStatus / 2; 
 				PunchAnimation(punchScaleX, punchScaleY);
-					
-				
 			}
 			
 			else if (ParameterController.windowStatus == 4)
 			{
-				
 				punchScaleX = ParameterController.windowStatus / 2; 
 				punchScaleY = ParameterController.windowStatus / 2; 
 				PunchAnimation(punchScaleX, punchScaleY);
-				
-				
 			}
 			
 		}
@@ -178,17 +155,12 @@ public class InputEvaluation : MonoBehaviour
 		else  // everything that happens on missed Inputs
 		{
 			AkSoundEngine.PostEvent("Play_PlayerMissedInput", this.gameObject);
-
-		}
-		
-		
+		}	
 	}
-	
 	private void PunchAnimation(float punchScaleX, float punchScaleY)
 	{
 		transform.DOPunchScale(new Vector3(punchScaleX, punchScaleY, 1), 0.25f / ParameterController.playbackSpeed , 10, 1f);
 	}
-	
 	
 	bool IsValueInRange(float value, float min, float max)
 	{
@@ -199,28 +171,4 @@ public class InputEvaluation : MonoBehaviour
 		
 		return false;
 	}
-	
-	void CacheTimingWindow() // we need to substract okTime so its fits again
-	{
-		
-		currentPositionInSong = wwiseClockSync.UpdatePositionInSong(wwiseClockSync.mainThemeID) - okTime - bufferedMovement.inputBufferTime;
-		secondsPerBeat = wwiseClockSync.UpdateBPM(wwiseClockSync.mainThemeID);
-		
-		okWindowTimeStart = currentPositionInSong + secondsPerBeat * 1000 - okTime;
-		okWindowTimeEnd = currentPositionInSong +  secondsPerBeat * 1000 + okTime;
-		goodWindowTimeStart = currentPositionInSong + secondsPerBeat * 1000 - goodTime;
-		goodWindowTimeEnd = currentPositionInSong +  secondsPerBeat * 1000 + goodTime ;
-		perfectWindowTimeStart = currentPositionInSong + secondsPerBeat * 1000 - perfectTime;
-		perfectWindowTimeEnd = currentPositionInSong +  secondsPerBeat * 1000 + perfectTime;
-	}
-	
-		IEnumerator Buffer()
-	{
-		float waitTime = okTime / 1000;
-		yield return new WaitForSeconds(waitTime); // The window for the next Input only gets updated after the input is already to late anyway // this can surely be improved upon
-		CacheTimingWindow();
-		//Debug.Log("I enter buffer now Buffer");
-	}	
-	
-	
 }

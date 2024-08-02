@@ -13,6 +13,7 @@ public class WwiseClockSync : MonoBehaviour
 	[HideInInspector] public static int currentPositionInSong;
 	
 	public InputEvaluation inputEvaluation;
+	public ParameterController parameterController;
 
 	public UnityEvent OnCustomCueY;
 
@@ -126,12 +127,14 @@ public class WwiseClockSync : MonoBehaviour
 					
 					
 				case AkCallbackType.AK_MusicSyncBeat:
-					//secondsPerBeat = _musicInfo.segmentInfo_fBeatDuration;
-					//secondsPerBeat = Mathf.Round(secondsPerBeat);
-					inputEvaluation.startInputTimer();
-					//Debug.Log("Beat is hit");
+				
+					parameterController.UpdateWindowTiming();
+					
+					
 
-					OnEveryBeat.Invoke();
+					
+					//StartCoroutine(inputEvaluation.InputBuffer()); // on every Beat we cache the window for the following beat 
+					OnEveryBeat.Invoke(); // Inspector Methods
 					
 					if (qlimaxReached)
 					{
@@ -202,24 +205,14 @@ public class WwiseClockSync : MonoBehaviour
 			case "Kick":
 				//OnCustomCueY.Invoke();
 				
-				inputEvaluation.startInputTimer();
+				//StartCoroutine(inputEvaluation.InputBuffer());
+				
+				parameterController.UpdateWindowTiming();
 				
 				break;
 
 		}
 	}
-
-	//this is pretty straightforward - get the elapsed time      // WE NEED THIS FOR ELAPSED TIME I GUESS
-	public int GetMusicTimeInMS()
-	{
-
-		AkSegmentInfo segmentInfo = new AkSegmentInfo();
-
-		AkSoundEngine.GetPlayingSegmentInfo(mainThemeID, segmentInfo, true);
-
-		return segmentInfo.iCurrentPosition;
-	}
-
 
 	public void DeactivateMovement(float xd)
 	{

@@ -13,6 +13,23 @@ public BufferedMovement BufferedMovement;
 
 public static int comboCounter; 
 public static int windowStatus;
+public WwiseClockSync wwiseClockSync;
+
+
+[HideInInspector] public float secondsPerBeat;
+	
+[HideInInspector] public float okWindowTimeStart;
+[HideInInspector] public float goodWindowTimeStart;
+[HideInInspector] public float perfectWindowTimeStart;
+	
+[HideInInspector] public float okWindowTimeEnd;
+[HideInInspector] public float goodWindowTimeEnd;
+[HideInInspector] public float perfectWindowTimeEnd;
+public float okTime;
+public float goodTime;
+public float perfectTime;	
+[HideInInspector] public float cachedPositionInSong;
+public Queue<float> CacheTimingQueue = new Queue<float>();
 	
 
 [HideInInspector] public static float playbackSpeed = 1;
@@ -61,6 +78,26 @@ public static int windowStatus;
 	}
 	
 	
+	// This function is called on every beat or cue and caches the window for the next beat in secondsPerBeat + 1000. The values we store here are checked against the InputTimings in WindowChecker()
+	// we need to substract okTime which is the time we waited in the Buffer to store the next value, so its fits again. 
+	public void UpdateWindowTiming()
+	{
+		CacheTimingQueue.Enqueue(wwiseClockSync.UpdatePositionInSong(wwiseClockSync.mainThemeID));
+					
+		if (CacheTimingQueue.Count > 1) // dont do it on the first beat // need to mute the song in the beginning and then start it on button press so we already have information stored on the beginning
+		{
+			cachedPositionInSong = CacheTimingQueue.Dequeue();
+		}
+					
+		secondsPerBeat = wwiseClockSync.UpdateBPM(wwiseClockSync.mainThemeID);
+		
+		okWindowTimeStart = cachedPositionInSong + secondsPerBeat * 1000 - okTime;
+		okWindowTimeEnd = cachedPositionInSong +  secondsPerBeat * 1000 + okTime;
+		goodWindowTimeStart = cachedPositionInSong + secondsPerBeat * 1000 - goodTime;
+		goodWindowTimeEnd = cachedPositionInSong +  secondsPerBeat * 1000 + goodTime ;
+		perfectWindowTimeStart = cachedPositionInSong + secondsPerBeat * 1000 - perfectTime;
+		perfectWindowTimeEnd = cachedPositionInSong +  secondsPerBeat * 1000 + perfectTime;		
+	}
 	
 
 }
